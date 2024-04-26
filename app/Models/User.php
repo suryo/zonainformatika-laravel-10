@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\UserRole;
 
 class User extends Authenticatable
 {
@@ -50,5 +51,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(UserRole::class, 'role_id');
+    }
+
+    public function getRole($roleId)
+    {
+        // Cari peran berdasarkan ID
+        return UserRole::find($roleId);
     }
 }

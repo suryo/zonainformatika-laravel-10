@@ -49,11 +49,13 @@
         @php
             $user = auth()->user();
             $role = $user->role ?? null; // Dapatkan peran pengguna, jika ada
+            $roleId = auth()->user()->role_id; // Dapatkan ID peran pengguna
+            $userRole = auth()->user()->getRole($roleId); // Panggil metode getRole() dengan ID peran pengguna
         @endphp
-        @dump($user->role_id);
-        @if($role)
-            <p>Role: {{ $role->role }}</p> <!-- Tampilkan peran pengguna jika ada -->
-        @endif
+
+        @if($userRole)
+        <p>Role: {{ $userRole->role }}</p> <!-- Tampilkan peran pengguna jika ada -->
+    @endif
     </section>
 
     <!-- Footer -->
