@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\CourseCategoryController;
+use App\Http\Controllers\Backend\CourseDetailController;
+use App\Http\Controllers\Backend\CourseRoadmapController;
+use App\Http\Controllers\Backend\CourseTechnologyController;
 
 
 
@@ -38,3 +43,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('forgot-password');
 // Route untuk menghandle proses forgot password
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
+
+Route::resource('courses', CourseController::class);
+Route::resource('course_categories', CourseCategoryController::class);
+Route::resource('details', CourseDetailController::class);
+Route::resource('course_roadmaps', CourseRoadmapController::class);
+Route::resource('course_technologies', CourseTechnologyController::class);
+Route::resource('roadmaps', CourseRoadmapController::class);
