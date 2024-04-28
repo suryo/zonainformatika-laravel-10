@@ -23,7 +23,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'role' => 'required|exists:roles,id', // Pastikan role yang dipilih ada dalam tabel roles
+            // 'role' => 'required|exists:roles,id', // Pastikan role yang dipilih ada dalam tabel roles
         ]);
 
         // Membuat pengguna baru

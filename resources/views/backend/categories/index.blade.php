@@ -5,7 +5,7 @@
 @section('content')
     <h1>All Course Categories</h1>
     <a href="{{ route('course_categories.create') }}">Add Course Category</a>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Name</th>

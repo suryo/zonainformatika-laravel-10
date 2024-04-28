@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingController;
+
+
+use App\Http\Controllers\Backend\DashboardController;
+
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\CourseCategoryController;
 use App\Http\Controllers\Backend\CourseDetailController;
@@ -24,7 +28,10 @@ use App\Http\Controllers\Backend\CourseTechnologyController;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
-
+Route::get('/about', [LandingController::class, 'about'])->name('about');
+Route::get('/services', [LandingController::class, 'services'])->name('services');
+Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('/course/{id}', [LandingController::class, 'showCourse'])->name('course.detail');
 
 // Route untuk menampilkan form registrasi
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
@@ -44,6 +51,8 @@ Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm']
 // Route untuk menghandle proses forgot password
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 
+
+Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
 Route::resource('courses', CourseController::class);
 Route::resource('course_categories', CourseCategoryController::class);
 Route::resource('details', CourseDetailController::class);
