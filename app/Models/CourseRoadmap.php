@@ -12,9 +12,9 @@ class CourseRoadmap extends Model
     protected $table ='course_roadmap';
     protected $fillable = [
         'title', 'short_desc', 'text', 'type', 'image', 'image_landscape',
-        'image_square', 'level', 'price_buy', 'price_rent', 'video', 'quote_text',
+        'image_square', 'level', 'video', 'quote_text',
         'quote_author', 'author', 'slug', 'status', 'images_code', 'order',
-        'category_id', 'created_at', 'updated_at', 'deleted'
+        'category_id'
     ];
 
     // Definisikan hubungan dengan model CourseCategory

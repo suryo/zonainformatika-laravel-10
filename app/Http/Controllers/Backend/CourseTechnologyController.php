@@ -25,8 +25,9 @@ class CourseTechnologyController extends Controller
         return redirect()->route('course_technologies.index');
     }
 
-    public function show(CourseTechnology $technology)
+    public function show($id)
     {
+        $technology = CourseTechnology::findOrFail($id);
         return view('backend.technologies.show', compact('technology'));
     }
 

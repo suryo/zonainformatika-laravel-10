@@ -35,10 +35,20 @@ class CourseRoadmapController extends Controller
         return view('backend.roadmaps.edit', compact('roadmap'));
     }
 
-    public function update(Request $request, CourseRoadmap $roadmap)
+    public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'short_desc' => 'required',
+            // tambahkan validasi untuk field lainnya
+        ]);
+        $roadmap = CourseRoadmap::findOrFail($id);
         $roadmap->update($request->all());
-        return redirect()->route('course_roadmaps.index');
+        if ($roadmap->update($validatedData)) {
+            return redirect()->route('course_roadmaps.index')->with('success', 'Roadmap updated successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Failed to update roadmap. Please try again.');
+        }
     }
 
     public function destroy(CourseRoadmap $roadmap)

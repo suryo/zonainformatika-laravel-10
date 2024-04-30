@@ -17,23 +17,21 @@ class CreateCourseRoadmapTable extends Migration
             $table->bigIncrements('id');
             $table->string('title', 191);
             $table->text('short_desc')->nullable();
-            $table->text('text');
-            $table->text('type');
+            $table->text('text')->nullable();
+            $table->text('type')->nullable();
             $table->text('image')->nullable();
             $table->text('image_landscape')->nullable();
             $table->string('image_square', 255)->nullable();
             $table->string('level', 255)->nullable();
-            $table->decimal('price_buy', 15, 0)->nullable();
-            $table->decimal('price_rent', 15, 2)->nullable();
             $table->text('video')->nullable();
             $table->text('quote_text')->nullable();
             $table->text('quote_author')->nullable();
-            $table->string('author', 191);
-            $table->string('slug', 191);
-            $table->string('status', 191);
-            $table->string('images_code', 191);
-            $table->integer('order');
-            $table->bigInteger('category_id')->unsigned();
+            $table->string('author', 191)->nullable();
+            $table->string('slug', 191)->nullable();
+            $table->string('status', 191)->nullable();
+            $table->string('images_code', 191)->nullable();
+            $table->integer('order')->nullable();
+            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->timestamps();
 
             

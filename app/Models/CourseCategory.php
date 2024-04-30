@@ -9,7 +9,7 @@ class CourseCategory extends Model
 {
     use HasFactory;
     protected $table ='course_category';
-    protected $fillable = ['name', 'image', 'slug', 'status', 'deleted'];
+    protected $fillable = ['name', 'text', 'image', 'slug', 'status', 'deleted'];
     public function courses()
     {
         return $this->hasMany(Course::class);

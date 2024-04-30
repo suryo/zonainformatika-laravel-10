@@ -22,7 +22,7 @@ class CourseCategoryController extends Controller
     public function store(Request $request)
     {
         CourseCategory::create($request->all());
-        return redirect()->route('categories.index');
+        return redirect()->route('course_categories.index');
     }
 
     public function show(CourseCategory $category)

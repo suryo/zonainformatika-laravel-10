@@ -18,7 +18,7 @@ class CreateCourseTable extends Migration
             $table->string('title', 191);
             $table->text('short_desc')->nullable();
             $table->text('text');
-            $table->text('type');
+            $table->text('type')->nullable();
             $table->text('image')->nullable();
             $table->text('image_landscape')->nullable();
             $table->string('image_square', 255)->nullable();
@@ -30,9 +30,9 @@ class CreateCourseTable extends Migration
             $table->text('quote_author')->nullable();
             $table->string('author', 191);
             $table->string('slug', 191);
-            $table->string('status', 191);
-            $table->string('images_code', 191);
-            $table->integer('order');
+            $table->string('status', 191)->nullable();
+            $table->string('images_code', 191)->nullable();
+            $table->integer('order')->nullable();
             $table->bigInteger('category_id')->unsigned();
             $table->integer('technology_id')->nullable();
             $table->enum('deleted', ['false', 'true'])->default('false');

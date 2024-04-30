@@ -27,10 +27,14 @@
             @foreach ($courses as $course)
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="{{ $course->image_url }}" class="card-img-top" alt="{{ $course->title }}">
+                        <img src="{{ asset('assets/image/course/' . $course->image) }}" class="card-img-top" alt="{{ $course->title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $course->title }}</h5>
-                            <p class="card-text">Price: {{ $course->price_buy }}</p>
+                            @if ($course->price_buy == 0)
+                            <span class="badge badge-info">Free</span>
+                            @else
+                                <p class="card-text">Rp. {{ number_format($course->price_buy, 0, ',', '.') }}</p>
+                            @endif
                             <p class="card-text">Author: {{ $course->author }}</p>
                             <a href="{{ route('course.detail', ['id' => $course->id]) }}" class="btn btn-primary">View Details</a>
                         </div>

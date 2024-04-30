@@ -17,7 +17,7 @@ class CreateCourseTechnologyTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 191);
             $table->string('image', 255)->nullable();
-            $table->string('slug', 191);
+            $table->string('slug', 191)->nullable();
             $table->string('status', 255)->nullable();
             $table->enum('deleted', ['false', 'true'])->default('false');
             $table->timestamps();

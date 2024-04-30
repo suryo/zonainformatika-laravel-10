@@ -1,33 +1,33 @@
-<!-- resources/views/courses/index.blade.php -->
-
 @extends('layouts.backend-template')
 
 @section('content')
-    <h1>All Courses</h1>
-    <a href="{{ route('courses.create') }}">Add Course</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($courses as $course)
+    <div class="container">
+        <h1 class="mt-4 mb-4">All Courses</h1>
+        <a href="{{ route('courses.create') }}" class="btn btn-primary mb-4">Add Course</a>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ $course->title }}</td>
-                    <td>{{ $course->description }}</td>
-                    <td>
-                        <a href="{{ route('courses.edit', $course->id) }}">Edit</a>
-                        <form action="{{ route('courses.destroy', $course->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach($courses as $course)
+                    <tr>
+                        <td>{{ $course->title }}</td>
+                        <td>{{ $course->description }}</td>
+                        <td>
+                            <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-info btn-sm">Edit</a>
+                            <form action="{{ route('courses.destroy', $course->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

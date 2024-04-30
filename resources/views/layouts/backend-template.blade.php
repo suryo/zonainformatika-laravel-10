@@ -107,6 +107,7 @@
             </a>
         </div>
         <ul>
+            <li><a href="{{ route('dashboard') }}" style="color: #333;">Dashboard</a></li> <!-- Warna biru untuk tautan -->
             <li><a href="{{ route('course_technologies.index') }}" style="color: #333;">Course Technology</a></li> <!-- Warna biru untuk tautan -->
             <li><a href="{{ route('course_categories.index') }}" style="color: #333;">Course Category</a></li> <!-- Warna biru untuk tautan -->
             <li><a href="{{ route('roadmaps.index') }}" style="color: #333;">Course Roadmap</a></li> <!-- Warna biru untuk tautan -->
@@ -136,4 +137,4 @@
     <!-- Footer -->
     <footer>
         <!-- Add your footer content here -->
-        <p>&copy; 2024 Your App. All
+        <p>&copy; 2024 Zonainformatika

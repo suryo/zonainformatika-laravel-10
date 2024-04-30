@@ -16,8 +16,9 @@ class CreateCourseCategoryTable extends Migration
         Schema::create('course_category', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 191);
+            $table->text('text')->nullable();
             $table->string('image', 255)->nullable();
-            $table->string('slug', 191);
+            $table->string('slug', 191)->nullable();
             $table->string('status', 255)->nullable();
             $table->enum('deleted', ['false', 'true'])->default('false');
             $table->timestamps();
