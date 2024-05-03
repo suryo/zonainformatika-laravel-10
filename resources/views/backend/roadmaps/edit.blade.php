@@ -39,8 +39,8 @@
                 <input type="text" id="level" name="level" class="form-control" value="{{ $roadmap->level }}">
             </div>
             <div class="form-group">
-                <label for="price_buy">Price Buy:</label>
-                <input type="text" id="price_buy" name="price_buy" class="form-control" value="{{ $roadmap->price_buy }}">
+                <label for="price">Price Buy:</label>
+                <input type="text" id="price" name="price" class="form-control" value="{{ $roadmap->price }}">
             </div>
             <div class="form-group">
                 <label for="price_rent">Price Rent:</label>

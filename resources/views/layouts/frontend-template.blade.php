@@ -157,6 +157,7 @@
                         <a href="{{ route('login') }}" class="btn btn-link">Login</a>
                     </li>
                 @endauth
+                <li><a href="/carts" class="btn btn-link">Cart</a></li>
             </ul>
         </nav>
     </header>

@@ -14,13 +14,34 @@
             <!-- Kolom untuk informasi course -->
             <div class="col-md-6 col-sm-12 text-left">
                 <h2>{{ $course->title }}</h2>
+                @auth
+                <form action="{{ route('carts.store') }}" method="POST">
+                    @csrf
+
+                    <!-- Memeriksa apakah pengguna sudah login -->
+                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                
+                    {{-- <label for="quantity">User ID:</label> --}}
+                
+                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                    <input type="hidden" name="price" value="{{ $course->price }}">
+                    {{-- <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1"> --}}
+                    <button class="btn btn-primary mt-1 mb-1" type="submit">Add to Cart</button>
+                </form>
+                @else
+                <div class="badge mb-5"> Login First to see course details </div>
+                @endauth
                 <p>{{ $course->short_desc }}</p>
                 <p>{{ $course->text }}</p>
                 <p>Author: {{ $course->author }}</p>
+               
             </div>
+            
         </div>
         <!-- Akhir bagian atas halaman -->
 
+        @auth
         <!-- Bagian bawah halaman (detail course) -->
         <div class="row mt-4">
             <div class="col-md-12">
@@ -59,5 +80,23 @@
             </div>
         </div>
         <!-- Akhir bagian bawah halaman -->
+        
+        @endauth
+        @auth
+        <form action="{{ route('carts.store') }}" method="POST">
+            @csrf
+
+             <!-- Memeriksa apakah pengguna sudah login -->
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+           
+            {{-- <label for="quantity">User ID:</label> --}}
+          
+            <input type="hidden" name="course_id" value="{{ $course->id }}">
+            <input type="hidden" name="price" value="{{ $course->price }}">
+            {{-- <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1"> --}}
+            <button class="btn btn-primary mt-4" type="submit">Add to Cart</button>
+        </form>
+        @endauth
     </div>
 @endsection

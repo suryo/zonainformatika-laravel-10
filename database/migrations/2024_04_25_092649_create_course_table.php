@@ -23,8 +23,7 @@ class CreateCourseTable extends Migration
             $table->text('image_landscape')->nullable();
             $table->string('image_square', 255)->nullable();
             $table->string('level', 255)->nullable();
-            $table->integer('price_buy')->nullable();
-            $table->integer('price_rent')->nullable();
+            $table->integer('price')->nullable();
             $table->text('video')->nullable();
             $table->text('quote_text')->nullable();
             $table->text('quote_author')->nullable();

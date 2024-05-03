@@ -12,7 +12,7 @@ class Course extends Model
     protected $table ='course';
     protected $fillable = [
         'title', 'short_desc', 'text', 'type', 'image', 'image_landscape',
-        'image_square', 'level', 'price_buy', 'price_rent', 'video', 'quote_text',
+        'image_square', 'level', 'price', 'video', 'quote_text',
         'quote_author', 'author', 'slug', 'status', 'images_code', 'order',
         'category_id', 'technology_id', 'deleted'
     ];

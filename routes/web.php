@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingController;
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 use App\Http\Controllers\Backend\DashboardController;
 
@@ -32,6 +34,13 @@ Route::get('/about', [LandingController::class, 'about'])->name('about');
 Route::get('/services', [LandingController::class, 'services'])->name('services');
 Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
 Route::get('/course/{id}', [LandingController::class, 'showCourse'])->name('course.detail');
+Route::resource('carts', CartController::class);
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/checkout/requestjoin', [CheckoutController::class, 'requestjoin'])->name('checkout.requestjoin');
+// Route::post('/checkout/submitApproval', [CheckoutController::class, 'submitApproval'])->name('checkout.submitApproval');
+
+
+
 
 // Route untuk menampilkan form registrasi
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');

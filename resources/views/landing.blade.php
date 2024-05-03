@@ -6,7 +6,7 @@
         <p>This is the landing page content.</p>
         @auth <!-- Memeriksa apakah pengguna sudah login -->
             <div>
-                Welcome {{ auth()->user()->name }} ({{ auth()->user()->email }})
+                Welcome {{ auth()->user()->name }} - {{ auth()->user()->id }} ({{ auth()->user()->email }})
             </div>
         @endauth
 
@@ -30,10 +30,10 @@
                         <img src="{{ asset('assets/image/course/' . $course->image) }}" class="card-img-top" alt="{{ $course->title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $course->title }}</h5>
-                            @if ($course->price_buy == 0)
+                            @if ($course->price == 0)
                             <span class="badge badge-info">Free</span>
                             @else
-                                <p class="card-text">Rp. {{ number_format($course->price_buy, 0, ',', '.') }}</p>
+                                <p class="card-text">Rp. {{ number_format($course->price, 0, ',', '.') }}</p>
                             @endif
                             <p class="card-text">Author: {{ $course->author }}</p>
                             <a href="{{ route('course.detail', ['id' => $course->id]) }}" class="btn btn-primary">View Details</a>

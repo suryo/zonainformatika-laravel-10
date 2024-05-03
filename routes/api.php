@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\LogoutController;
+
+use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\CourseCategoryController;
+use App\Http\Controllers\Api\CourseDetailController;
+use App\Http\Controllers\Api\CourseRoadmapController;
+use App\Http\Controllers\Api\CourseTechnologyController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +26,9 @@ use App\Http\Controllers\Api\Auth\LogoutController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('coursecategories', [CoursecategoryController::class, 'index']);
+Route::get('coursecategories/{id}', [CoursecategoryController::class, 'show']);
 
 Route::post('login', [LoginController::class, 'index']);
 Route::group(['middleware' => ['jwt.verify']], function () {
