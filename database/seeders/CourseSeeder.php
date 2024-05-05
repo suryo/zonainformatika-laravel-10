@@ -16,9 +16,10 @@ class CourseSeeder extends Seeder
     {
         Course::create([
             'title' => 'PHP',
-            'text' => '-',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar pemrograman PHP sehingga kamu akan paham gimana cara coding di PHP.',
+            'text' => 'Dalam kelas online ini kamu akan belajar langkah demi langkah dasar-dasar Bahasa Pemrograman PHP. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
             'type' => '-',
-            'image' => 'php.svg',
+            'image' => 'php.png',
             'price' => 0,
             'author' => 'Suryo Atmojo',
             'slug' => 'php',
@@ -28,9 +29,10 @@ class CourseSeeder extends Seeder
         ]);
         Course::create([
             'title' => 'Laravel for Beginner',
-            'text' => '-',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar pemrograman framework Laravel sehingga kamu akan paham gimana cara menggunakan framework Laravel.',
+            'text' => 'Dalam kelas online ini kamu akan belajar langkah demi langkah dasar-dasar framework Laravel. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
             'type' => '-',
-            'image' => 'laravel.svg',
+            'image' => 'laravel.png',
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'laravel_for_beginner',
@@ -41,9 +43,10 @@ class CourseSeeder extends Seeder
 
         Course::create([
             'title' => 'HTML',
-            'text' => '-',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar pemrograman HTML sehingga kamu akan paham gimana cara coding di HTML.',
+            'text' => 'Dalam kelas online ini kamu akan belajar langkah demi langkah dasar-dasar Bahasa Pemrograman HTML. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
             'type' => '-',
-            'image' => 'html.svg',
+            'image' => 'html.png',
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'html',
@@ -54,9 +57,10 @@ class CourseSeeder extends Seeder
 
         Course::create([
             'title' => 'JavaScript',
-            'text' => '-',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar pemrograman JavaScript sehingga kamu akan paham gimana cara coding di Javascript.',
+            'text' => 'Dalam kelas online ini kamu akan belajar langkah demi langkah dasar-dasar Bahasa Pemrograman Javascript. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
             'type' => '-',
-            'image' => 'javascript.svg',
+            'image' => 'javascript.png',
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'javascript',
@@ -67,9 +71,10 @@ class CourseSeeder extends Seeder
 
         Course::create([
             'title' => 'Git',
-            'text' => '-',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar menggunakan Git.',
+            'text' => 'Dalam kelas online ini kamu akan belajar langkah demi langkah dasar-dasar penggunaan Git. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
             'type' => '-',
-            'image' => 'git.svg',
+            'image' => 'git.png',
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'git',
@@ -80,9 +85,10 @@ class CourseSeeder extends Seeder
 
         Course::create([
             'title' => 'Python for Beginner',
-            'text' => '-',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar pemrograman Python sehingga kamu akan paham gimana cara coding di Python.',
+            'text' => 'Dalam kelas online ini kamu akan belajar langkah demi langkah dasar-dasar Bahasa Pemrograman Python. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
             'type' => '-',
-            'image' => 'python.svg',
+            'image' => 'python.png',
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'python_for_beginner',

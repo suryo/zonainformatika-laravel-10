@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('ordertotal');
             $table->integer('payment');
             $table->string('namalengkap');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('nim')->nullable();
+            $table->string('kampus')->nullable();
             $table->string('email');
             $table->string('phone');
             $table->string('negara');

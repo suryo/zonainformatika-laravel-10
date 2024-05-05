@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <h2>Welcome to Our Website</h2>
-        <p>This is the landing page content.</p>
+        {{-- <h2>Welcome to Our Course</h2> --}}
+        {{-- <p>This is the landing page content.</p> --}}
         @auth <!-- Memeriksa apakah pengguna sudah login -->
             <div>
                 Welcome {{ auth()->user()->name }} - {{ auth()->user()->id }} ({{ auth()->user()->email }})

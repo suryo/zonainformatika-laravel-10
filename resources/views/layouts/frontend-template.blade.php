@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>ZonaInformatika</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -59,7 +59,7 @@
                 left: -200px;
                 width: 200px;
                 height: 100%;
-                background-color: #f0f0f0;
+                background-color: #545454;
                 padding-top: 60px;
                 z-index: 1;
                 transition: 0.5s;
@@ -128,7 +128,7 @@
     <!-- Header -->
     <header>
         <div>
-            <h3>Skeleton Website</h3>
+            <h3>ZonaInformatika</h3>
         </div>
         <!-- Hamburger menu checkbox -->
         <input type="checkbox" id="menu-toggle" hidden>
@@ -140,24 +140,24 @@
         <!-- Navigasi -->
         <nav>
             <ul>
-                <li><a href="/" class="btn btn-link">Home</a></li>
-                <li><a href="/about" class="btn btn-link">About</a></li>
-                <li><a href="/services" class="btn btn-link">Services</a></li>
-                <li><a href="/contact" class="btn btn-link">Contact</a></li>
+                <li><a href="/" class="btn btn-link" style="color: white";>Home</a></li>
+                <li><a href="/about" class="btn btn-link" style="color: white";>About</a></li>
+                <li><a href="/services" class="btn btn-link" style="color: white";>Services</a></li>
+                <li><a href="/contact" class="btn btn-link" style="color: white";>Contact</a></li>
                 @auth
-                    <li><a href="{{ route('dashboard') }}" class="btn btn-link">Dashboard</a></li>
+                    <li><a href="{{ route('dashboard') }}" class="btn btn-link" style="color: white";>Dashboard</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="btn btn-link">Logout</button>
+                            <button type="submit" class="btn btn-link" style="color: white";>Logout</button>
                         </form>
                     </li>
                 @else
                     <li>
-                        <a href="{{ route('login') }}" class="btn btn-link">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-link" style="color: white";>Login</a>
                     </li>
                 @endauth
-                <li><a href="/carts" class="btn btn-link">Cart</a></li>
+                <li><a href="/carts" class="btn btn-link" style="color: white;">Cart</a></li>
             </ul>
         </nav>
     </header>

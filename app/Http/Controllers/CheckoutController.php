@@ -46,7 +46,7 @@ class CheckoutController extends Controller
         // Set data order
         $order = [
             'nomerorder' => $orderNumber,
-            'iduser' => 1,
+            'iduser' => auth()->user()->id,
             'status' => 'draft',
             'itemsubtotal' => $request->itemsubtotal,
             'tax' => 0,
@@ -55,8 +55,8 @@ class CheckoutController extends Controller
             'payment' => 0,
             'pengiriman' => $request->pengiriman,
             'namalengkap' => 'Suryo Atmojo',
-            'firstname' => "Suryo",
-            'lastname' => "Atmojo",
+            'nim' => $request->nim,
+            'kampus' => $request->kampus,
             'negara' => "Indonesia",
             'provinsi' => "Jawa Timur",
             'kota' => "Surabaya",
@@ -122,15 +122,15 @@ class CheckoutController extends Controller
         // Set data order
         $order = [
             'nomerorder' => $orderNumber,
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
             'status' => 'request',
             'subtotal' => $subtotal,
             'tax' => 10000,
             'ordertotal' => $subtotal + (10000),
             'payment' => 0,
             'namalengkap' => 'Suryo Atmojo',
-            'firstname' => "Suryo",
-            'lastname' => "Atmojo",
+            'nim' => $request->nim,
+            'kampus' => $request->kampus,
             'email' => "suryoatm@gmail.com",
             'phone' => "081217173406",
             'negara' => "Indonesia",

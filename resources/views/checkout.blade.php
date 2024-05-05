@@ -37,12 +37,12 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="firstname">First Name:</label>
-                <input type="text" class="form-control" id="firstname" name="firstname">
+                <label for="nim">NIM / NRP</label>
+                <input type="text" class="form-control" id="nim" name="nim">
             </div>
             <div class="form-group col-md-6">
-                <label for="lastname">Last Name:</label>
-                <input type="text" class="form-control" id="lastname" name="lastname">
+                <label for="kampus">Kampus:</label>
+                <input type="text" class="form-control" id="kampus" name="kampus">
             </div>
         </div>
         <div class="form-row">

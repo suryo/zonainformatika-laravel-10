@@ -64,7 +64,15 @@ Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
 Route::resource('courses', CourseController::class);
 Route::resource('course_categories', CourseCategoryController::class);
-Route::resource('details', CourseDetailController::class);
+// Route::resource('course_details', CourseDetailController::class);
+Route::get('/course/{slug}/list', [CourseDetailController::class, 'listcoursedetail'])->name('coursesdetail.list');
+Route::get('/course/{course_id}/details/create', [CourseDetailController::class,'create'])->name('coursedetail.create');
+Route::post('/course/{course_id}/details/store', [CourseDetailController::class,'store'])->name('coursedetail.store');
+Route::post('/course/{course_id}/details/edit', [CourseDetailController::class,'edit'])->name('coursedetail.edit');
+Route::get('/course/{course_id}/details/update', [CourseDetailController::class,'update'])->name('coursedetail.update');
+Route::post('/course/{course_id}/details/detail', [CourseDetailController::class,'destroy'])->name('coursedetail.destroy');
+
+
 Route::resource('course_roadmaps', CourseRoadmapController::class);
 Route::resource('course_technologies', CourseTechnologyController::class);
 Route::resource('roadmaps', CourseRoadmapController::class);
