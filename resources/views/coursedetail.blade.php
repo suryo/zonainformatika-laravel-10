@@ -8,10 +8,8 @@
             <div class="col-md-6 col-sm-12">
                 <div class="embed-responsive embed-responsive-16by9">
                     <!-- Tambahkan URL video YouTube di sini -->
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PV1ESeZcjqg?si=L7XCC6e0xVW0DmE9"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    {!! $course->video !!}
+                  
                 </div>
             </div>
             <!-- Kolom untuk informasi course -->

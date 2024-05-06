@@ -20,7 +20,8 @@
                     <td>{{ $detail->description }}</td>
                     <td>{{ $detail->type }}</td>
                     <td>
-                        <a href="{{ route('coursedetail.edit', $detail->id) }}" class="btn btn-info btn-sm">Edit</a>
+                        {{-- <a href="{{ route('coursedetail.edit', $detail->id) }}" class="btn btn-info btn-sm">Edit</a> --}}
+                        <a href="{{ url('/course/'.$course_id.'/details/'.$detail->id.'/edit') }}" class="btn btn-info btn-sm">Edit</a>
                         <form action="{{ route('coursedetail.destroy', $detail->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')

@@ -32,53 +32,6 @@
     <form action="{{ route('checkout.requestjoin') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="namalengkap">Nama Lengkap:</label>
-            <input type="text" class="form-control" id="namalengkap" name="namalengkap">
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="nim">NIM / NRP</label>
-                <input type="text" class="form-control" id="nim" name="nim">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="kampus">Kampus:</label>
-                <input type="text" class="form-control" id="kampus" name="kampus">
-            </div>
-        </div>
-        <div class="form-row">
-        <div class="form-group col-md-6"">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email">
-        </div>
-        <div class="form-group col-md-6"">
-            <label for="phone">Phone:</label>
-            <input type="text" class="form-control" id="phone" name="phone">
-        </div>
-        </div>
-   
-        <input type="hidden" class="form-control" id="negara" name="negara" value="indonesia">
-       
-        <div class="form-group">
-            <label for="provinsi">Provinsi:</label>
-            <input type="text" class="form-control" id="provinsi" name="provinsi">
-        </div>
-        <div class="form-group">
-            <label for="kota">Kota:</label>
-            <input type="text" class="form-control" id="kota" name="kota">
-        </div>
-        <div class="form-group">
-            <label for="kecamatan">Kecamatan:</label>
-            <input type="text" class="form-control" id="kecamatan" name="kecamatan">
-        </div>
-        <div class="form-group">
-            <label for="alamat">Alamat:</label>
-            <textarea class="form-control" id="alamat" name="alamat"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="kodepos">Kode Pos:</label>
-            <input type="text" class="form-control" id="kodepos" name="kodepos">
-        </div>
-        <div class="form-group">
             <label for="addcatatan">Catatan Tambahan:</label>
             <textarea class="form-control" id="addcatatan" name="addcatatan"></textarea>
         </div>

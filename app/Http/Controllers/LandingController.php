@@ -18,11 +18,23 @@ class LandingController extends Controller
     public function showCourse($id)
     {
         $user = auth()->user();
-        $subscribe = OrderDetail::where('order_details.deleted', 'false')
-        ->join('orders', 'orders.nomerorder', '=', 'order_details.nomerorder')
-        ->where('user_id','=',$user->id)
-        ->select('order_details.*', 'orders.status as orders_status', 'orders.payment_status as orders_payment_status')
-        ->get();
+
+        if(!isset($user)){
+            $subscribe = OrderDetail::where('order_details.deleted', 'false')
+            ->join('orders', 'orders.nomerorder', '=', 'order_details.nomerorder')
+            ->select('order_details.*', 'orders.status as orders_status', 'orders.payment_status as orders_payment_status')
+            ->get();
+        }
+        else
+        {
+            $subscribe = OrderDetail::where('order_details.deleted', 'false')
+            ->join('orders', 'orders.nomerorder', '=', 'order_details.nomerorder')
+            ->where('user_id','=',$user->id)
+            ->select('order_details.*', 'orders.status as orders_status', 'orders.payment_status as orders_payment_status')
+            ->get();
+        }
+
+       
         $availability = count($subscribe);
     
         $course = Course::find($id);

@@ -26,6 +26,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
         ]);
         Course::create([
             'title' => 'Laravel for Beginner',
@@ -39,6 +40,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
         ]);
 
         Course::create([

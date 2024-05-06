@@ -17,17 +17,6 @@ class Order extends Model
         'tax',
         'ordertotal',
         'payment',
-        'namalengkap',
-        'nim',
-        'kampus',
-        'email',
-        'phone',
-        'negara',
-        'provinsi',
-        'kota',
-        'kecamatan',
-        'alamat',
-        'kodepos',
         'addcatatan',
         'payment_id',
         'payment_method',
@@ -40,4 +29,9 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+        // Define the relationship with OrderDetail
+        public function orderDetails()
+        {
+            return $this->hasMany(OrderDetail::class, 'nomerorder', 'nomerorder');
+        }
 }

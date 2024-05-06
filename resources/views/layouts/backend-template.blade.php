@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your App Title</title>
+    <title>Zonainformatika</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
     <style>
         /* Custom sidebar styles */
         .sidebar {
@@ -75,6 +78,10 @@
             margin-bottom: 20px;
             text-align: center;
         }
+
+        .bi {
+            font-family: 'bootstrap-icons';
+        }
     </style>
 </head>
 
@@ -98,32 +105,35 @@
         </nav>
     </header>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="logo">
-            <a href="{{ route('landing') }}">
-                <!-- Your logo image or text goes here -->
-                <h1>Your Logo</h1>
-            </a>
-        </div>
-        <ul>
-            <li><a href="{{ route('dashboard') }}" style="color: #333;">Dashboard</a></li> <!-- Warna biru untuk tautan -->
-            <li><a href="{{ route('course_technologies.index') }}" style="color: #333;">Course Technology</a></li> <!-- Warna biru untuk tautan -->
-            <li><a href="{{ route('course_categories.index') }}" style="color: #333;">Course Category</a></li> <!-- Warna biru untuk tautan -->
-            <li><a href="{{ route('roadmaps.index') }}" style="color: #333;">Course Roadmap</a></li> <!-- Warna biru untuk tautan -->
-            <li><a href="{{ route('courses.index') }}" style="color: #333;">Courses</a></li> <!-- Warna biru untuk tautan -->
-
-            <!-- Tombol Logout -->
-            <li>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                    style="color: #333;">Logout</a> <!-- Warna biru untuk tautan -->
-            </li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </ul>
+ <!-- Sidebar -->
+<div class="sidebar">
+    <div class="logo">
+        <a href="{{ route('landing') }}">
+            <!-- Your logo image or text goes here -->
+            <h1>Your Logo</h1>
+        </a>
     </div>
+    <ul>
+        <li><a href="{{ route('dashboard') }}" style="color: #333;"><i class="bi bi-house-door"></i> Dashboard</a></li> <!-- Warna biru untuk tautan -->
+        <hr>
+        <li><a href="{{ route('course_technologies.index') }}" style="color: #333;"><i class="bi bi-laptop"></i> Course Technology</a></li> <!-- Warna biru untuk tautan -->
+        <li><a href="{{ route('course_categories.index') }}" style="color: #333;"><i class="bi bi-collection"></i> Course Category</a></li> <!-- Warna biru untuk tautan -->
+        <li><a href="{{ route('roadmaps.index') }}" style="color: #333;"><i class="bi bi-map"></i> Course Roadmap</a></li> <!-- Warna biru untuk tautan -->
+        <li><a href="{{ route('courses.index') }}" style="color: #333;"><i class="bi bi-book"></i> Courses</a></li> <!-- Warna biru untuk tautan -->
+        <hr>
+        <li><a href="{{ route('orders.index') }}" style="color: #333;"><i class="bi bi-basket"></i> Orders</a></li> <!-- Warna biru untuk tautan -->
+
+        <!-- Tombol Logout -->
+        <li>
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                style="color: #333;"><i class="bi bi-box-arrow-right"></i> Logout</a> <!-- Warna biru untuk tautan -->
+        </li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </ul>
+</div>
 
     <!-- Page Content -->
     <div class="content">
@@ -138,3 +148,13 @@
     <footer>
         <!-- Add your footer content here -->
         <p>&copy; 2024 Zonainformatika
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+    
+    </html>
+    

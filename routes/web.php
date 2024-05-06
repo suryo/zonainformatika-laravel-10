@@ -7,6 +7,9 @@ use App\Http\Controllers\LandingController;
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ProfileController;
+
+
 
 use App\Http\Controllers\Backend\DashboardController;
 
@@ -15,8 +18,8 @@ use App\Http\Controllers\Backend\CourseCategoryController;
 use App\Http\Controllers\Backend\CourseDetailController;
 use App\Http\Controllers\Backend\CourseRoadmapController;
 use App\Http\Controllers\Backend\CourseTechnologyController;
-
-
+use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\OrderDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +41,9 @@ Route::resource('carts', CartController::class);
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout/requestjoin', [CheckoutController::class, 'requestjoin'])->name('checkout.requestjoin');
 // Route::post('/checkout/submitApproval', [CheckoutController::class, 'submitApproval'])->name('checkout.submitApproval');
-
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 
 
@@ -68,11 +73,16 @@ Route::resource('course_categories', CourseCategoryController::class);
 Route::get('/course/{slug}/list', [CourseDetailController::class, 'listcoursedetail'])->name('coursesdetail.list');
 Route::get('/course/{course_id}/details/create', [CourseDetailController::class,'create'])->name('coursedetail.create');
 Route::post('/course/{course_id}/details/store', [CourseDetailController::class,'store'])->name('coursedetail.store');
-Route::post('/course/{course_id}/details/edit', [CourseDetailController::class,'edit'])->name('coursedetail.edit');
-Route::get('/course/{course_id}/details/update', [CourseDetailController::class,'update'])->name('coursedetail.update');
+Route::get('/course/{course}/details/{course_detail_id}/edit', [CourseDetailController::class,'edit'])->name('coursedetail.edit');
+Route::post('/course/{course_id}/details/update', [CourseDetailController::class,'update'])->name('coursedetail.update');
 Route::post('/course/{course_id}/details/detail', [CourseDetailController::class,'destroy'])->name('coursedetail.destroy');
+
+Route::put('/orders/{id}/updatePaymentStatus', [OrderController::class,'updatePaymentStatus'])->name('orders.updatePaymentStatus');
+Route::put('/orderdetails/{id}', [OrderDetailController::class,'updateStatus'])->name('orderdetails.update');
+
 
 
 Route::resource('course_roadmaps', CourseRoadmapController::class);
 Route::resource('course_technologies', CourseTechnologyController::class);
 Route::resource('roadmaps', CourseRoadmapController::class);
+Route::resource('orders', OrderController::class);

@@ -10,6 +10,8 @@ use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\CourseRoadmap;
 use App\Models\CourseTechnology;
+use App\Models\Order;
+
 
 class DashboardController extends Controller
 {
@@ -28,6 +30,9 @@ class DashboardController extends Controller
             $courseCategoriesCount = CourseCategory::count();
             $courseRoadmapsCount = CourseRoadmap::count();
             $courseTechnologiesCount = CourseTechnology::count();
+
+            $OrderCount = Order::count();
+    
     
 
             // Jika peran adalah 'user', arahkan ke halaman login
@@ -43,7 +48,7 @@ class DashboardController extends Controller
             }
 
             // Jika peran adalah 'super admin', 'admin', atau 'tutor', tampilkan halaman dashboard
-            return view('backend.dashboard.superadmin',compact('coursesCount', 'courseCategoriesCount', 'courseRoadmapsCount', 'courseTechnologiesCount'));
+            return view('backend.dashboard.superadmin',compact('coursesCount', 'courseCategoriesCount', 'courseRoadmapsCount', 'courseTechnologiesCount', 'OrderCount'));
         }
 
         // Jika pengguna belum login, arahkan ke halaman login

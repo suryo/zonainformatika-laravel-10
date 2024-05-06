@@ -20,17 +20,6 @@ return new class extends Migration
             $table->integer('tax');
             $table->integer('ordertotal');
             $table->integer('payment');
-            $table->string('namalengkap');
-            $table->string('nim')->nullable();
-            $table->string('kampus')->nullable();
-            $table->string('email');
-            $table->string('phone');
-            $table->string('negara');
-            $table->string('provinsi');
-            $table->string('kota');
-            $table->string('kecamatan');
-            $table->text('alamat');
-            $table->string('kodepos');
             $table->text('addcatatan')->nullable();
             $table->integer('payment_id');
             $table->string('payment_method');

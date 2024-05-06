@@ -26,4 +26,10 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+       // Define the inverse relationship with Order
+       public function order()
+       {
+           return $this->belongsTo(Order::class, 'nomerorder', 'nomerorder');
+       }
 }

@@ -18,6 +18,15 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('role_id')->default(0);
+            $table->string('nim')->nullable();
+            $table->string('kampus')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('negara')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->text('alamat')->nullable();
+            $table->string('kodepos')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -91,20 +91,30 @@ class CourseDetailController extends Controller
         return view('backend.coursedetail.show', compact('detail'));
     }
 
-    public function edit(CourseDetail $detail)
+    public function edit($course_id, $course_detail_id)
     {
-        return view('backend.coursedetail.edit', compact('detail'));
+        $courseDetail = CourseDetail::where('id', $course_detail_id)->get();
+        $courseDetail = ($courseDetail[0]);
+        return view('backend.coursedetail.edit', compact('courseDetail', 'course_id', 'course_detail_id'));
     }
 
     public function update(Request $request, CourseDetail $detail)
     {
+        // dump($request->course_id);
+        // dd($request->course_detail_id);
+
+        $course = Course::where('id', $request->course_id)->get();
+        $course_slug = $course[0]->slug;
+        
         $detail->update($request->all());
-        return redirect()->route('backend.coursedetail.index');
+        return redirect()->to('/course/' . $course_slug. '/list');
+        //return redirect()->route('coursesdetail.list');
+        
     }
 
     public function destroy(CourseDetail $detail)
     {
         $detail->delete();
-        return redirect()->route('backend.coursedetail.index');
+        return redirect()->route('coursesdetail.list');
     }
 }
