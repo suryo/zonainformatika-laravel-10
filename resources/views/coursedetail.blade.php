@@ -5,18 +5,19 @@
         <!-- Bagian atas halaman -->
         <div class="row">
             <!-- Kolom untuk video -->
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12" {{ $course->video == null ? 'hidden' : '' }}>
                 <div class="embed-responsive embed-responsive-16by9">
                     <!-- Tambahkan URL video YouTube di sini -->
                     {!! $course->video !!}
-                  
                 </div>
             </div>
             <!-- Kolom untuk informasi course -->
-            <div class="col-md-6 col-sm-12 text-left">
+            <div class= {{ $course->video == null ? "col-md-12 col-sm-12 text-left" :"col-md-6 col-sm-12 text-left" }} >
                 <h2>{{ $course->title }}</h2>
                 @auth
                     @if ($availability_on_cart == 0)
+
+
                             @if ($availability == 0)
                             <form action="{{ route('carts.store') }}" method="POST">
                                 @csrf

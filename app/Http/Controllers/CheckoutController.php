@@ -118,6 +118,8 @@ class CheckoutController extends Controller
 
         // Generate nomor order
         $orderNumber = date('dmYHis');
+        $tax = 0;
+        $orderTotal = $subtotal + $tax;
 
         // Set data order
         $order = [
@@ -125,8 +127,8 @@ class CheckoutController extends Controller
             'user_id' => auth()->user()->id,
             'status' => 'request',
             'subtotal' => $subtotal,
-            'tax' => 10000,
-            'ordertotal' => $subtotal + (10000),
+            'tax' => $tax,
+            'ordertotal' => $subtotal + $tax,
             'payment' => 0,
             'namalengkap' => 'Suryo Atmojo',
             'nim' => $request->nim,
@@ -162,7 +164,7 @@ class CheckoutController extends Controller
             
             $subtotal = $cart->sum('total');
             
-        dump($cart);
+        // dump($cart);
         // Set data order detail
         $orderDetails = [];
         foreach ($cart as $cart) {
@@ -178,8 +180,8 @@ class CheckoutController extends Controller
             ];
         }
 
-        dump($order);
-        dump($orderDetails);
+        // dump($order);
+        // dump($orderDetails);
 
         // dd("request join");
         
@@ -197,7 +199,25 @@ class CheckoutController extends Controller
 
         // Set pesan sukses atau error jika diperlukan
         $message = "Request Course Disimpan";
-        return redirect()->route('landing')->with('success', $message);
+        
+        return redirect()->route('checkout.info')->with([
+            'success' => $message,
+            'orderNumber' => $orderNumber,
+            'orderSubtotal' => $subtotal,
+            'tax' => $tax,
+            'orderTotal' => $orderTotal,
+        ]);
+        //return view('checkout-info', compact('orderNumber', 'orderTotal'));
+        // return redirect()->route('checkout.info')->with('success', $message);
+    }
+
+    public function checkoutInfo()
+    {
+        $orderNumber = session('orderNumber');
+        $orderTotal = session('orderTotal');
+        $orderSubtotal = session('subtotal');
+        $tax = session('tax');
+        return view('checkout-info',compact('orderNumber', 'orderTotal', 'orderSubtotal', 'tax'));
     }
 
     public function submitApproval(Request $request)

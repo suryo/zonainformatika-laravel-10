@@ -4,7 +4,6 @@
 <div class="container">
     <h1>Course Subscribe</h1>
 
-   
     <table class="table">
         <thead>
             <tr>
@@ -20,14 +19,11 @@
                     <td>{{ $cart->title }}</td>
                     <td>{{ $cart->short_desc }}</td>
                     <td>{{ $cart->author }}</td>
-                    <td>{{ $cart->total }}</td>
-                   
+                    <td>Rp. {{ number_format($cart->total, 0, ',', '.') }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
-   
 
     <form action="{{ route('checkout.requestjoin') }}" method="POST">
         @csrf
@@ -35,18 +31,10 @@
             <label for="addcatatan">Catatan Tambahan:</label>
             <textarea class="form-control" id="addcatatan" name="addcatatan"></textarea>
         </div>
-        
             <input type="hidden" class="form-control" id="payment_id" name="payment_id" value="1">
-       
-
             <input type="hidden" class="form-control" id="payment_method" name="payment_method" value="transfer">
-      
-       
             <input type="hidden" class="form-control" id="payment_status" name="payment_status" value="unpaid">
-       
-
-        <input type="hidden" name="order" value="{{ json_encode($cart) }}">
-        {{-- <input type="hidden" name="orderDetails" value="{{ json_encode($orderDetails) }}"> --}}
+            <input type="hidden" name="order" value="{{ json_encode($cart) }}">
         <button type="submit" class="btn btn-primary mr-2">Order Course</button>
     </form>
 

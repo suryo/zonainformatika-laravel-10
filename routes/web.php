@@ -40,6 +40,8 @@ Route::get('/course/{id}', [LandingController::class, 'showCourse'])->name('cour
 Route::resource('carts', CartController::class);
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout/requestjoin', [CheckoutController::class, 'requestjoin'])->name('checkout.requestjoin');
+
+Route::get('/checkout-info', [CheckoutController::class, 'checkoutInfo'])->name('checkout.info');
 // Route::post('/checkout/submitApproval', [CheckoutController::class, 'submitApproval'])->name('checkout.submitApproval');
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

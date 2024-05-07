@@ -24,10 +24,10 @@ class CourseSeeder extends Seeder
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'html',
-            'status'=> 'inactive',
+            'status'=> 'active',
             'category_id'=> 1,
             'technology_id'=> 1,
-            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            'video' => ''
         ]);
 
         Course::create([
@@ -39,10 +39,10 @@ class CourseSeeder extends Seeder
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'css',
-            'status'=> 'inactive',
+            'status'=> 'active',
             'category_id'=> 1,
             'technology_id'=> 1,
-            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            'video' => ''
         ]);
 
    
@@ -56,10 +56,10 @@ class CourseSeeder extends Seeder
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'javascript',
-            'status'=> 'inactive',
+            'status'=> 'active',
             'category_id'=> 1,
             'technology_id'=> 1,
-            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            'video' => ''
         ]);
 
         Course::create([
@@ -71,10 +71,10 @@ class CourseSeeder extends Seeder
             'price' => 50000,
             'author' => 'Suryo Atmojo',
             'slug' => 'bootstrap',
-            'status'=> 'inactive',
+            'status'=> 'active',
             'category_id'=> 1,
             'technology_id'=> 1,
-            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            'video' => ''
         ]);
 
         Course::create([
@@ -89,7 +89,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
-            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            'video' => ''
         ]);
 
 
@@ -105,7 +105,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
-            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            'video' => ''
         ]);
         Course::create([
             'title' => 'Laravel',
@@ -119,7 +119,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
-            'video' => '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nW60yGRoUrs?si=DDJGAwKkzXrr_YZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            'video' => ''
         ]);
 
         Course::create([
@@ -134,6 +134,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -148,6 +149,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -162,6 +164,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -176,6 +179,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -190,6 +194,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -204,6 +209,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -218,6 +224,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -232,6 +239,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -246,6 +254,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -260,6 +269,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -274,6 +284,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -288,6 +299,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -302,6 +314,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
 
         Course::create([
@@ -316,6 +329,7 @@ class CourseSeeder extends Seeder
             'status'=> 'inactive',
             'category_id'=> 1,
             'technology_id'=> 1,
+            'video' => ''
         ]);
     }
 }
