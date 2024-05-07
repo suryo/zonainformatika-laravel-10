@@ -16,6 +16,7 @@
             <label for="video">Video:</label>
           
             <textarea class="form-control" id="video" name="video" rows="4">{{ $courseDetail->video }}</textarea>
+            <label for="" class=""></label>add this code into iframe : <code>class="embed-responsive-item" width=100% height=320px</code></label>
         </div>
         <div class="form-group">
             <label for="type">Type:</label>
