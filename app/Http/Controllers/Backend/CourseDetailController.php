@@ -23,8 +23,19 @@ class CourseDetailController extends Controller
             ->select('course_detail.*', 'course.id as course_id', 'course.title as course_title', 'course.price as course_price')
             ->get();
         //$coursedetails = CourseDetail::where('id_course', $course->id)->get();
-        $course_id = $coursedetails[0]->course_id;
-        return view('backend.coursedetail.index', compact('coursedetails', 'course_id'));
+        if (count($coursedetails) == 0) {
+            $courses = Course::where('slug', '=', $courseslug)
+                ->get();
+
+            $coursedetails = [];
+            $course_id = $courses[0]->id;
+
+            //return view('backend.courses.index', compact('courses'));
+            return view('backend.coursedetail.index', compact('coursedetails', 'course_id'));
+        } else {
+            $course_id = $coursedetails[0]->course_id;
+            return view('backend.coursedetail.index', compact('coursedetails', 'course_id'));
+        }
     }
 
     public function create($idcourse)
@@ -40,11 +51,11 @@ class CourseDetailController extends Controller
             // Your validation rules for other fields here...
             'image' => 'image|mimes:jpeg,png,jpg,gif', // Adjust max file size as needed
         ]);
-      
+
 
         // Handle image upload
         if ($request->hasFile('image')) {
-        
+
             // Get the file name with extension
             $fileNameWithExt = $request->file('image')->getClientOriginalName();
             // Get just the file name
@@ -55,9 +66,8 @@ class CourseDetailController extends Controller
             $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
             // Upload the image
             $path = $request->file('image')->storeAs('public/assets/image/course', $fileNameToStore);
-          
         } else {
-          
+
             $fileNameToStore = null; // Set a default value if no image is uploaded
         }
 
@@ -83,7 +93,6 @@ class CourseDetailController extends Controller
         $courseDetail->save();
 
         return redirect()->to('/course/' . $request->slug_course . '/list');
-        
     }
 
     public function show(CourseDetail $detail)
@@ -105,11 +114,11 @@ class CourseDetailController extends Controller
 
         $course = Course::where('id', $request->course_id)->get();
         $course_slug = $course[0]->slug;
-        
+
         $detail->update($request->all());
-        return redirect()->to('/course/' . $course_slug. '/list');
+        return redirect()->to('/course/' . $course_slug . '/list');
         //return redirect()->route('coursesdetail.list');
-        
+
     }
 
     public function destroy(CourseDetail $detail)
