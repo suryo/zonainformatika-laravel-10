@@ -110,7 +110,8 @@
     <div class="logo">
         <a href="{{ route('landing') }}">
             <!-- Your logo image or text goes here -->
-            <h1>Your Logo</h1>
+            {{-- <h1>Your Logo</h1> --}}
+            <img src="{{ asset('assets/image/logo/zonainformatika.jpeg') }}" class="card-img-top" alt="ZonaInfor">
         </a>
     </div>
     <ul>
