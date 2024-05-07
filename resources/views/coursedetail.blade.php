@@ -16,40 +16,41 @@
             <div class="col-md-6 col-sm-12 text-left">
                 <h2>{{ $course->title }}</h2>
                 @auth
-                    @if ($availability == 0)
-                        <form action="{{ route('carts.store') }}" method="POST">
-                            @csrf
-
-                            <!-- Memeriksa apakah pengguna sudah login -->
-                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-
-                            {{-- <label for="quantity">User ID:</label> --}}
-
-                            <input type="hidden" name="course_id" value="{{ $course->id }}">
-                            <input type="hidden" name="price" value="{{ $course->price }}">
-                            <button class="btn btn-primary mt-1 mb-1" type="submit">Add to Cart</button>
-                        </form>
-                    @else
-                       
-                        @if ($subscribe[0]->orders_payment_status == 'unpaid' && $subscribe[0]->course_id == $course->id)
-                            {{-- belum bayar --}}
-                        @elseif($subscribe[0]->orders_payment_status == 'paid' && $subscribe[0]->course_id == $course->id)
-                            {{-- sudah bayar --}}
-                        @else
+                    @if ($availability_on_cart == 0)
+                            @if ($availability == 0)
                             <form action="{{ route('carts.store') }}" method="POST">
                                 @csrf
-
                                 <!-- Memeriksa apakah pengguna sudah login -->
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-
-                                {{-- <label for="quantity">User ID:</label> --}}
-
                                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                                 <input type="hidden" name="price" value="{{ $course->price }}">
-                                <button class="btn btn-primary mt-1 mb-1" type="submit">Add to Cart</button>
+                                <button class="btn btn-info mt-1 mb-1" type="submit">Add to Cart</button>
                             </form>
-                        @endif
+                            @else
+                            
+                                @if ($subscribe[0]->orders_payment_status == 'unpaid' && $subscribe[0]->course_id == $course->id)
+                                    {{-- belum bayar --}}
+                                @elseif($subscribe[0]->orders_payment_status == 'paid' && $subscribe[0]->course_id == $course->id)
+                                    {{-- sudah bayar --}}
+                                @else
+                                    <form action="{{ route('carts.store') }}" method="POST">
+                                        @csrf
+
+                                        <!-- Memeriksa apakah pengguna sudah login -->
+                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
+                                        {{-- <label for="quantity">User ID:</label> --}}
+
+                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                        <input type="hidden" name="price" value="{{ $course->price }}">
+                                        <button class="btn btn-info mt-1 mb-1" type="submit">Add to Cart</button>
+                                    </form>
+                                @endif
+                            @endif
+                        @else
+                        <a href="{{ url('carts') }}" class="btn btn-success mt-1 mb-1" type="submit">Already on Cart</a>
                     @endif
+                    
                 @else
                     <div class="badge mb-5"> Login First to see course details </div>
                 @endauth

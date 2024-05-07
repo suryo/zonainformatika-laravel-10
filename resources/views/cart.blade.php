@@ -34,7 +34,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <p>Total Price: {{ number_format($subtotal, 0, ',', '.') }}</p>
+            <p>Total Price: Rp. {{ number_format($subtotal, 0, ',', '.') }}</p>
             <a href="{{ route('checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
         @endif
     </div>

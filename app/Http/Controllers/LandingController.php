@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\CourseDetail;
+use App\Models\Cart;
 
 class LandingController extends Controller
 {
@@ -34,12 +35,20 @@ class LandingController extends Controller
             ->get();
         }
 
+      
+        $cart = Cart::where('course_id', $id)
+        ->where('user_id',$user->id)
+        ->where('deleted','false')
+        ->get();
+
+        $availability_on_cart = count($cart);
+
        
         $availability = count($subscribe);
     
         $course = Course::find($id);
         $coursedetails = CourseDetail::where('id_course', $course->id)->get();
-        return view('coursedetail', compact('course','coursedetails','subscribe', 'availability'));
+        return view('coursedetail', compact('course','coursedetails','subscribe', 'availability', 'availability_on_cart'));
     }
     public function about()
     {

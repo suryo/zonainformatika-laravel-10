@@ -25,18 +25,18 @@
 
         <div class="row">
             @foreach ($courses as $course)
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="card">
                         <img src="{{ asset('assets/image/course/' . $course->image) }}" class="card-img-top" alt="{{ $course->title }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $course->title }}</h5>
+                            {{-- <h5 class="card-title">{{ $course->title }}</h5> --}}
                             @if ($course->price == 0)
-                            <span class="badge badge-info">Free</span>
+                            <p class="card-text">Free</p>
                             @else
                                 <p class="card-text">Rp. {{ number_format($course->price, 0, ',', '.') }}</p>
                             @endif
                             <p class="card-text">Author: {{ $course->author }}</p>
-                            <a href="{{ route('course.detail', ['id' => $course->id]) }}" class="btn btn-primary">View Details</a>
+                            <a href="{{ route('course.detail', ['id' => $course->id]) }}" class="btn btn-info">View Details</a>
                         </div>
                     </div>
                 </div>

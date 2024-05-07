@@ -163,7 +163,14 @@
                         <a href="{{ route('login') }}" class="btn btn-link" style="color: white";>Login</a>
                     </li>
                 @endauth
-                <li><a href="/carts" class="btn btn-link" style="color: white;">Cart</a></li>
+                <li><a href="/carts" class="btn btn-link" style="color: white;">Cart
+                    @php
+                    $cartItemCount = \App\Models\Cart::where('deleted', 'false')->count();
+                @endphp
+                @if ($cartItemCount > 0)
+                    <span class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
+                @endif
+                </a></li>
             </ul>
         </nav>
     </header>
