@@ -88,7 +88,7 @@ class CourseDetailController extends Controller
         $courseDetail->order = $request->input('order');
         $courseDetail->deleted = $request->input('deleted');
         $courseDetail->category_id = $request->input('category_id');
-
+//dd($request->input('text'));
         $courseDetail->image = $fileNameToStore; // Assign the image name
         $courseDetail->save();
 
@@ -121,9 +121,15 @@ class CourseDetailController extends Controller
 
     }
 
-    public function destroy(CourseDetail $detail)
+    public function destroy(Request $request, CourseDetail $detail)
     {
+        $course = Course::where('id', $request->course_id)->get();
+        $course_slug = $course[0]->slug;
+        $detail = CourseDetail::where('id', $request->course_detail_id);
+
         $detail->delete();
-        return redirect()->route('coursesdetail.list');
+        return redirect()->to('/course/' . $course_slug . '/list');
+        // $detail->delete();
+        // return redirect()->route('coursesdetail.list');
     }
 }

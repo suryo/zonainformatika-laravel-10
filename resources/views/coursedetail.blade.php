@@ -91,13 +91,13 @@
                                             aria-labelledby="heading{{ $detail->id }}" data-parent="#accordion">
                                             <div class="card-body row">
                                                 <!-- Kolom untuk video -->
-                                                <div class="col-md-6 col-sm-12">
+                                                <div class="col-md-6 col-sm-12" {{ $detail->video == null ? 'hidden' : '' }}>
                                                     {!! $detail->video !!}
                                                 </div>
                                                 <!-- Kolom untuk informasi detail -->
-                                                <div class="col-md-6 col-sm-12 text-left" style="padding-left: 20px;">
+                                                <div class={{ $detail->video == null ? "col-md-12 col-sm-12 text-left" : "col-md-6 col-sm-12 text-left" }} style="padding-left: 20px;">
                                                     <p>{{ $detail->title }}</p>
-                                                    <p>{{ $detail->text }}</p>
+                                                    <p>{!! $detail->text !!}</p>
                                                     <p>{{ $detail->type }}</p>
                                                     <p>Author: {{ $detail->author }}</p>
                                                 </div>

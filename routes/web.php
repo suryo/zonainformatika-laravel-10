@@ -77,7 +77,7 @@ Route::get('/course/{course_id}/details/create', [CourseDetailController::class,
 Route::post('/course/{course_id}/details/store', [CourseDetailController::class,'store'])->name('coursedetail.store');
 Route::get('/course/{course}/details/{course_detail_id}/edit', [CourseDetailController::class,'edit'])->name('coursedetail.edit');
 Route::post('/course/{course_id}/details/update', [CourseDetailController::class,'update'])->name('coursedetail.update');
-Route::post('/course/{course_id}/details/detail', [CourseDetailController::class,'destroy'])->name('coursedetail.destroy');
+Route::post('/course/{course_id}/details/{course_detail_id}/destroy', [CourseDetailController::class,'destroy'])->name('coursedetail.destroy');
 
 Route::put('/orders/{id}/updatePaymentStatus', [OrderController::class,'updatePaymentStatus'])->name('orders.updatePaymentStatus');
 Route::put('/orderdetails/{id}', [OrderDetailController::class,'updateStatus'])->name('orderdetails.update');

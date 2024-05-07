@@ -17,14 +17,14 @@
             @foreach($coursedetails as $detail)
                 <tr>
                     <td>{{ $detail->title }}</td>
-                    <td>{{ $detail->description }}</td>
+                    <td>{{ $detail->short_desc }}</td>
                     <td>{{ $detail->type }}</td>
                     <td>
                         {{-- <a href="{{ route('coursedetail.edit', $detail->id) }}" class="btn btn-info btn-sm">Edit</a> --}}
                         <a href="{{ url('/course/'.$course_id.'/details/'.$detail->id.'/edit') }}" class="btn btn-info btn-sm">Edit</a>
-                        <form action="{{ route('coursedetail.destroy', $detail->id) }}" method="POST" class="d-inline">
+                        <form action="{{ url('/course/'.$course_id.'/details/'.$detail->id.'/destroy') }}" method="POST" class="d-inline">
                             @csrf
-                            @method('DELETE')
+                            {{-- @method('DELETE') --}}
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>
                     </td>
