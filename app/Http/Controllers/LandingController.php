@@ -60,6 +60,19 @@ class LandingController extends Controller
         $coursedetails = CourseDetail::where('id_course', $course->id)->get();
         return view('coursedetail', compact('course','coursedetails','subscribe', 'availability', 'availability_on_cart'));
     }
+
+    public function search(Request $request)
+    {
+      
+        $query = $request->input('query');
+        $courses = Course::where('deleted', 'false')
+                         ->where('status','=','active')
+                         ->where('title', 'like', '%' . $query . '%')
+                         ->get();
+                        
+        return view('course-list', compact('courses'));
+    }
+
     public function about()
     {
         return view('about');
