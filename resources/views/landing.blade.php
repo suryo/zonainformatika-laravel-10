@@ -2,6 +2,26 @@
 
 @section('content')
     <div class="container">
+        {{-- Banner image slider --}}
+        <div id="bannerCarousel" class="carousel slide mb-4" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/1200x400?text=Image+1" class="d-block w-100" alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/1200x400?text=Image+2" class="d-block w-100" alt="Image 2">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
         {{-- Search form --}}
         <form id="searchForm">
             <div class="form-group">
@@ -9,6 +29,7 @@
             </div>
         </form>
 
+        {{-- Course list --}}
         <div id="courseList">
             {{-- Course list will be loaded here --}}
             <div class="row">
