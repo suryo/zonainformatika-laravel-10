@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="{{ asset('plugin/ckeditor5-build-classic/ckeditor.js') }}"></script>
+    <script src="{{ asset('plugin/ckeditor/build/ckeditor.js') }}"></script>
 
 
     <style>
@@ -172,17 +172,7 @@
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'), {
-                codeBlock: {
-                    languages: [{
-                            language: 'css',
-                            label: 'CSS'
-                        },
-                        {
-                            language: 'html',
-                            label: 'HTML'
-                        }
-                    ]
-                }
+              
             })
             .then( /* ... */ )
             .catch( /* ... */ );

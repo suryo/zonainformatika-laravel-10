@@ -7,9 +7,23 @@
     <title>ZonaInformatika</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ez0yXQCTt7KT50xFwa7zr56z7zc5p5fjo9r7sSPS1cz6Qc7g3mBSsbVaoK7xS+Up" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha384-ez0yXQCTt7KT50xFwa7zr56z7zc5p5fjo9r7sSPS1cz6Qc7g3mBSsbVaoK7xS+Up" crossorigin="anonymous">
+    <script src="{{ asset('plugin/ckeditor/build/ckeditor.js') }}"></script>
 
+    <style>  
+        .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {  
+            border:0px !important;  
+        }  
+    </style> 
     <style>
+        textarea {
+            border: none;
+            outline: none;
+        }
+
+        
+
         /* Custom styles */
         header {
             background-color: #333;
@@ -147,10 +161,11 @@
                 <li><a href="/services" class="btn btn-link" style="color: white";>Services</a></li>
                 <li><a href="/contact" class="btn btn-link" style="color: white";>Contact</a></li>
                 @auth
-                    @if(auth()->user()->role_id == 1)
-                    <li><a href="{{ route('dashboard') }}" class="btn btn-link" style="color: white";>Dashboard</a></li>
+                    @if (auth()->user()->role_id == 1)
+                        <li><a href="{{ route('dashboard') }}" class="btn btn-link" style="color: white";>Dashboard</a></li>
                     @elseif(auth()->user()->role_id == 4)
-                    <li><a href="{{ route('profile.show') }}" class="btn btn-link" style="color: white";>Profile</a></li>
+                        <li><a href="{{ route('profile.show') }}" class="btn btn-link" style="color: white";>Profile</a>
+                        </li>
                     @endif
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
@@ -164,13 +179,13 @@
                     </li>
                 @endauth
                 <li><a href="/carts" class="btn btn-link" style="color: white;">Cart
-                    @php
-                    $cartItemCount = \App\Models\Cart::where('deleted', 'false')->count();
-                @endphp
-                @if ($cartItemCount > 0)
-                    <span class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
-                @endif
-                </a></li>
+                        @php
+                            $cartItemCount = \App\Models\Cart::where('deleted', 'false')->count();
+                        @endphp
+                        @if ($cartItemCount > 0)
+                            <span class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
+                        @endif
+                    </a></li>
             </ul>
         </nav>
     </header>
@@ -191,6 +206,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#konten'), {
+                toolbar: []
+            })
+            .then(konten => {
+                konten.enableReadOnlyMode("konten");
+
+                console.log(konten);
+            }).catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>
