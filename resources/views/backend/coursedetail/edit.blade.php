@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea class="form-control ckeditor" id="description" name="description" rows="4">{{ $courseDetail->description }}</textarea>
+            <textarea class="form-control ckeditor" id="editor" name="description" rows="4">{{ $courseDetail->text }}</textarea>
         </div>
         <div class="form-group">
             <label for="video">Video:</label>

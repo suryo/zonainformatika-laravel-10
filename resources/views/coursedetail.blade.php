@@ -12,46 +12,49 @@
                 </div>
             </div>
             <!-- Kolom untuk informasi course -->
-            <div class= {{ $course->video == null ? "col-md-12 col-sm-12 text-left" :"col-md-6 col-sm-12 text-left" }} >
+            <div class={{ $course->video == null ? 'col-md-12 col-sm-12 text-left' : 'col-md-6 col-sm-12 text-left' }}>
                 <h2>{{ $course->title }}</h2>
                 @auth
                     @if ($availability_on_cart == 0)
-
-
-                            @if ($availability == 0)
+                        @if ($availability == 0)
                             <form action="{{ route('carts.store') }}" method="POST">
                                 @csrf
                                 <!-- Memeriksa apakah pengguna sudah login -->
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                                 <input type="hidden" name="price" value="{{ $course->price }}">
+                                Rp. {{ number_format($course->price, 0, ',', '.') }}
+                                <br>
                                 <button class="btn btn-info mt-1 mb-1" type="submit">Add to Cart</button>
+                                <hr>
                             </form>
-                            @else
-                            
-                                @if ($subscribe[0]->orders_payment_status == 'unpaid' && $subscribe[0]->course_id == $course->id)
-                                    {{-- belum bayar --}}
-                                @elseif($subscribe[0]->orders_payment_status == 'paid' && $subscribe[0]->course_id == $course->id)
-                                    {{-- sudah bayar --}}
-                                @else
-                                    <form action="{{ route('carts.store') }}" method="POST">
-                                        @csrf
-
-                                        <!-- Memeriksa apakah pengguna sudah login -->
-                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-
-                                        {{-- <label for="quantity">User ID:</label> --}}
-
-                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                        <input type="hidden" name="price" value="{{ $course->price }}">
-                                        <button class="btn btn-info mt-1 mb-1" type="submit">Add to Cart</button>
-                                    </form>
-                                @endif
-                            @endif
                         @else
-                        <a href="{{ url('carts') }}" class="btn btn-success mt-1 mb-1" type="submit">Already on Cart</a>
+                            @if ($subscribe[0]->orders_payment_status == 'unpaid' && $subscribe[0]->course_id == $course->id)
+                                {{-- belum bayar --}}
+                            @elseif($subscribe[0]->orders_payment_status == 'paid' && $subscribe[0]->course_id == $course->id)
+                                {{-- sudah bayar --}}
+                            @else
+                                <form action="{{ route('carts.store') }}" method="POST">
+                                    @csrf
+
+                                    <!-- Memeriksa apakah pengguna sudah login -->
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
+                                    {{-- <label for="quantity">User ID:</label> --}}
+
+                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                    <input type="hidden" name="price" value="{{ $course->price }}">
+                                    Rp. {{ number_format($course->price, 0, ',', '.') }}
+                                    <br>
+                                    <button class="btn btn-info mt-1 mb-1" type="submit">Add to Cart</button>
+                                    <hr>
+                                </form>
+                            @endif
+                        @endif
+                    @else
+                    <hr>
+                        {{-- <a href="{{ url('carts') }}" class="btn btn-success mt-1 mb-1" type="submit">Already on Cart</a> --}}
                     @endif
-                    
                 @else
                     <div class="badge mb-5"> Login First to see course details </div>
                 @endauth
@@ -81,7 +84,7 @@
                                             <h5 class="mb-0 text-left">
                                                 <button class="btn btn-link" data-toggle="collapse"
                                                     data-target="#collapse{{ $detail->id }}" aria-expanded="true"
-                                                    aria-controls="collapse{{ $detail->id }}"  style="color: black;">
+                                                    aria-controls="collapse{{ $detail->id }}" style="color: black;">
                                                     {{ $detail->title }}
                                                 </button>
                                             </h5>
@@ -95,7 +98,8 @@
                                                     {!! $detail->video !!}
                                                 </div>
                                                 <!-- Kolom untuk informasi detail -->
-                                                <div class={{ $detail->video == null ? "col-md-12 col-sm-12 text-left" : "col-md-6 col-sm-12 text-left" }} style="padding-left: 20px;">
+                                                <div class={{ $detail->video == null ? 'col-md-12 col-sm-12 text-left' : 'col-md-6 col-sm-12 text-left' }}
+                                                    style="padding-left: 20px;">
                                                     <p>{{ $detail->title }}</p>
                                                     <p>{!! $detail->text !!}</p>
                                                     <p>{{ $detail->type }}</p>
@@ -110,7 +114,8 @@
                     </div>
                     <!-- Akhir bagian bawah halaman -->
                 @elseif ($subscribe[0]->orders_payment_status == 'paid' && $subscribe[0]->status == 'inactive')
-                    <p>anda sudah subscribe dan sudah menyelesaikan administrasi. course anda masih belum di aktifkan oleh admin</p>
+                    <p>anda sudah subscribe dan sudah menyelesaikan administrasi. course anda masih belum di aktifkan oleh admin
+                    </p>
                     <p>WA ke nomer 081217173406, untuk konfirmasi</p>
                 @else
                     <p>anda sudah subscribe, namun anda belum menyelesaikan administrasi.</p>

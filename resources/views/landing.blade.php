@@ -41,6 +41,12 @@
                             <div class="card-body">
                                 <p class="card-text">{{ $course->title }}</p>
                                 <p class="card-text">Author: {{ $course->author }}</p>
+                                @if ($course->price == 0 )
+                                <p class="card-text" style="color: rgb(0, 189, 180); font-weight: bold;">Free</p>
+                                @else
+                                <p class="card-text">Rp. {{ number_format($course->price, 0, ',', '.') }}</p>
+                                @endif
+                               
                                 <a href="{{ route('course.detail', ['id' => $course->id]) }}" class="btn btn-info">View Details</a>
                             </div>
                         </div>

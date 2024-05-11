@@ -57,6 +57,18 @@ class LandingController extends Controller
         
     
         $course = Course::find($id);
+        if ($course->price == 0) {
+            $availability_on_cart = 1;
+            $availability = 1;
+            $subscribe = [
+                (object) [
+                    "orders_payment_status" => "paid",
+                    "status" => "active"
+                ]
+            ];
+        }
+
+      
         $coursedetails = CourseDetail::where('id_course', $course->id)->get();
         return view('coursedetail', compact('course','coursedetails','subscribe', 'availability', 'availability_on_cart'));
     }

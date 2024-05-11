@@ -21,7 +21,7 @@ class CourseSeeder extends Seeder
             'text' => 'Dalam kelas online ini kamu akan belajar langkah demi langkah dasar-dasar tag HTML. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
             'type' => '-',
             'image' => 'html.png',
-            'price' => 50000,
+            'price' => 0,
             'author' => 'Suryo Atmojo',
             'slug' => 'html',
             'status'=> 'active',
