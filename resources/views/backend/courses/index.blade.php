@@ -16,7 +16,7 @@
                 @foreach($courses as $course)
                     <tr>
                         <td>{{ $course->title }}</td>
-                        <td>{{ $course->description }}</td>
+                        <td>{{ $course->short_desc }}</td>
                         <td>
                             <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-info btn-sm">Edit</a>
                             <a href="{{ route('coursesdetail.list', $course->slug) }}" class="btn btn-info btn-sm">List</a>
@@ -25,6 +25,22 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
+
+                         
+                                @if ($course->status == 'inactive')
+                                    <form action="{{ route('courses.updateStatus', $course->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-danger btn-sm">Activate</button>
+                                    </form>
+                                @else
+                                <form action="{{ route('courses.updateStatus', $course->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-primary btn-sm">Inactivate</button>
+                                </form>
+                                @endif
+                          
                         </td>
                     </tr>
                 @endforeach

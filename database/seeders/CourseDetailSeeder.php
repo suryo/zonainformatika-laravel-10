@@ -612,6 +612,60 @@ class CourseDetailSeeder extends Seeder
         // 21	LINUX
         CourseDetail::create(['id_course' => 21, 'title' =>'','text' => '-',]);
         
+        // 22	oop java
+        CourseDetail::create(['id_course' => 22, 'title' =>'Pendahuluan','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Pengenalan Object Oriented Programming','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Object','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Field','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'Method','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Constructor','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Constructor Overloading','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Variable Shadowing','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'This Keyword','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'Inheritance','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Method Overriding','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Super Keyword','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Super Constructor','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Object Class','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'Polumorphism','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Type Check dan Casts','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Variable Hiding','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Package','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Access Modifier','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'Import','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Abstract Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Abstract Method','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Getter dan Setter','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Interface','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'Interface Inheritance','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Default Method','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'toString() Method','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'equals() Method','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'hashCode() Method','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'Final Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Final Method','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Inner Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Anonymous Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Static Keyword','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'Record Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Enum Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Exception','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Runtime Exception','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Error','text' => '-',]);
+
+        CourseDetail::create(['id_course' => 22, 'title' =>'StackTraceElement Class','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Try with Resource','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Annotation','text' => '-',]);
+        CourseDetail::create(['id_course' => 22, 'title' =>'Reflection','text' => '-',]);
+
 
         
     }

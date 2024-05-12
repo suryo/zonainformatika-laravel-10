@@ -331,5 +331,20 @@ class CourseSeeder extends Seeder
             'technology_id'=> 1,
             'video' => ''
         ]);
+
+        Course::create([
+            'title' => 'OOP JAVA',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar OOP menggunakan Java sehingga kamu akan paham gimana tentang konsep OOP.',
+            'text' => 'Dalam kelas online ini kamu akan belajar langkah praktis penggunaan konsep OOP. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
+            'type' => '-',
+            'image' => 'oopjava.png',
+            'price' => 50000,
+            'author' => 'Suryo Atmojo',
+            'slug' => 'oopjava',
+            'status'=> 'inactive',
+            'category_id'=> 1,
+            'technology_id'=> 1,
+            'video' => ''
+        ]);
     }
 }

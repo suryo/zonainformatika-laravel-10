@@ -81,6 +81,7 @@ Route::post('/course/{course_id}/details/{course_detail_id}/destroy', [CourseDet
 
 Route::get('/coursesearch', [LandingController::class, 'search'])->name('course.search');
 
+Route::put('/course/{id}/updateStatus', [CourseController::class,'updateStatus'])->name('courses.updateStatus');
 
 Route::put('/orders/{id}/updatePaymentStatus', [OrderController::class,'updatePaymentStatus'])->name('orders.updatePaymentStatus');
 Route::put('/orderdetails/{id}', [OrderDetailController::class,'updateStatus'])->name('orderdetails.update');
