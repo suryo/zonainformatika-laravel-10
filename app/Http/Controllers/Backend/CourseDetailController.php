@@ -121,7 +121,8 @@ class CourseDetailController extends Controller
         $course_slug = $course[0]->slug;
 
         CourseDetail::where('id', $request->course_detail_id)->update(
-            ['text' => $request->description]);
+            ['text' => $request->description,
+        'status' => $request->status]);
 
         // $update = $coursedetail->update($request->all());
         return redirect()->to('/course/' . $course_slug . '/list');

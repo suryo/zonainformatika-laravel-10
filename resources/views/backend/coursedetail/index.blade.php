@@ -9,7 +9,7 @@
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Type</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,7 +18,7 @@
                 <tr>
                     <td>{{ $detail->title }}</td>
                     <td>{{ $detail->short_desc }}</td>
-                    <td>{{ $detail->type }}</td>
+                    <td>{{ $detail->status }}</td>
                     <td>
                         {{-- <a href="{{ route('coursedetail.edit', $detail->id) }}" class="btn btn-info btn-sm">Edit</a> --}}
                         <a href="{{ url('/course/'.$course_id.'/details/'.$detail->id.'/edit') }}" class="btn btn-info btn-sm">Edit</a>

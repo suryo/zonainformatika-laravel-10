@@ -22,6 +22,21 @@
             <label for="type">Type:</label>
             <input type="text" class="form-control" id="type" name="type" value="{{ $courseDetail->type }}">
         </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select class="form-control" id="status" name="status">
+                <option value="active" {{ $courseDetail->status == 'active' ? 'selected' : '' }}>Active</option>
+                <option value="inactive" {{ $courseDetail->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="deleted">Deleted:</label>
+            <select class="form-control" id="deleted" name="deleted">
+                <option value="false" {{ $courseDetail->deleted == "false" ? 'selected' : '' }}>False</option>
+                <option value="true" {{ $courseDetail->deleted == "true" ? 'selected' : '' }}>True</option>
+               
+            </select>
+        </div>
         <input type="hidden" name="course_id" id="course_id" value={{ $course_id }}>
         <input type="hidden" name="course_detail_id" id="course_detail_id" value={{ $course_detail_id }}>
         
