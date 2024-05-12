@@ -24,8 +24,6 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(['id_course' => 1, 'title' =>'Membuat Link untuk Menghubungkan Halaman Web','text' => '-',]);
         CourseDetail::create(['id_course' => 1, 'title' =>'Menampilkan Gambar di HTML','text' => '-',]);
         CourseDetail::create(['id_course' => 1, 'title' =>'Membuat List di HTML','text' => '-',]);
-        CourseDetail::create(['id_course' => 1, 'title' =>'Menampilkan Gambar di HTML','text' => '-',]);
-        CourseDetail::create(['id_course' => 1, 'title' =>'Membuat List di HTML','text' => '-',]);
         CourseDetail::create(['id_course' => 1, 'title' =>'Membuat Tabel di HTML','text' => '-',]);
         CourseDetail::create(['id_course' => 1, 'title' =>'Membuat Form pada HTML','text' => '-',]);
         CourseDetail::create(['id_course' => 1, 'title' =>'Elemen Semantik pada HTML','text' => '-',]);
