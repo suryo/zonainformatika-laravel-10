@@ -181,6 +181,9 @@
                     <li>
                         <a href="{{ route('login') }}" class="btn btn-link" style="color: white";>Login</a>
                     </li>
+                    <li>
+                        <a href="{{ route('register') }}" class="btn btn-info" style="color: white";>Register</a>
+                    </li>
                 @endauth
                 <li><a href="/carts" class="btn btn-link" style="color: white;">Cart
                         @php
@@ -189,7 +192,8 @@
                         @if ($cartItemCount > 0)
                             <span class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
                         @endif
-                    </a></li>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -210,19 +214,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#konten'), {
-                toolbar: []
-            })
-            .then(konten => {
-                konten.enableReadOnlyMode("konten");
-
-                console.log(konten);
-            }).catch(error => {
-                console.error(error);
-            });
-    </script>
+   
 </body>
 
 </html>

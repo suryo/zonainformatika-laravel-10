@@ -79,37 +79,62 @@
                             <div id="accordion">
                                 <!-- Looping untuk setiap course detail -->
                                 @foreach ($coursedetails as $detail)
-                                    <div class="card">
-                                        <div class="card-header" id="heading{{ $detail->id }}">
-                                            <h5 class="mb-0 text-left">
-                                                <button class="btn btn-link" data-toggle="collapse"
+                                <div class="card">
+                                    <div class="card-header" id="heading{{ $detail->id }}">
+                                        <h5 class="mb-0 text-left">
+                                            <button class="btn btn-link" data-toggle="collapse"
                                                     data-target="#collapse{{ $detail->id }}" aria-expanded="true"
                                                     aria-controls="collapse{{ $detail->id }}" style="color: black;">
-                                                    {{ $detail->title }}
-                                                </button>
-                                            </h5>
-                                        </div>
-
-                                        <div id="collapse{{ $detail->id }}" class="collapse"
-                                            aria-labelledby="heading{{ $detail->id }}" data-parent="#accordion">
-                                            <div class="card-body row">
-                                                <!-- Kolom untuk video -->
-                                                <div class="col-md-6 col-sm-12" {{ $detail->video == null ? 'hidden' : '' }}>
-                                                    {!! $detail->video !!}
-                                                </div>
-                                                <!-- Kolom untuk informasi detail -->
-                                                <div class={{ $detail->video == null ? 'col-md-12 col-sm-12 text-left' : 'col-md-6 col-sm-12 text-left' }}
-                                                    style="padding-left: 20px;">
-                                                    {{-- <h2>{{ $detail->title }}</h2> --}}
-                                                    <p>{!! $detail->short_desc !!}</p>
-                                                    <textarea class="ckeditor" id="konten" name="description" rows="4">{{ $detail->text }}</textarea>
-                                                    <p>{{ $detail->type }}</p>
-                                                    <p>Author: {{ $detail->author }}</p>
-                                                </div>
+                                                {{ $detail->title }}
+                                            </button>
+                                        </h5>
+                                    </div>
+                            
+                                    <div id="collapse{{ $detail->id }}" class="collapse"
+                                         aria-labelledby="heading{{ $detail->id }}" data-parent="#accordion">
+                                        <div class="card-body row">
+                                            <!-- Kolom untuk video -->
+                                            <div class="col-md-6 col-sm-12" {{ $detail->video == null ? 'hidden' : '' }}>
+                                                {!! $detail->video !!}
+                                            </div>
+                                            <!-- Kolom untuk informasi detail -->
+                                            <div class="{{ $detail->video == null ? 'col-md-12 col-sm-12 text-left' : 'col-md-6 col-sm-12 text-left' }}"
+                                                 style="padding-left: 20px;">
+                                                {{-- <h2>{{ $detail->title }}</h2> --}}
+                                                <p>{!! $detail->short_desc !!}</p>
+                                                <textarea class="ckeditor" id="konten{{ $detail->id }}" name="description" rows="4">{{ $detail->text }}</textarea>
+                                                <p>{{ $detail->type }}</p>
+                                                <p>Author: {{ $detail->author }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                </div>
+                            @endforeach
+                            
+                            {{-- <script>
+                                // Initialize CKEditor for each textarea
+                                $(document).ready(function() {
+                                    @foreach ($coursedetails as $detail)
+                                        CKEDITOR.replace('konten{{ $detail->id }}');
+                                    @endforeach
+                                });
+                            </script> --}}
+
+                            <script>
+                                 @foreach ($coursedetails as $detail)
+                                ClassicEditor
+                                    .create(document.querySelector('#konten{{ $detail->id }}'), {
+                                        toolbar: []
+                                    })
+                                    .then(konten => {
+                                        konten.enableReadOnlyMode("konten{{ $detail->id }}");
+                        
+                                        console.log(konten);
+                                    }).catch(error => {
+                                        console.error(error);
+                                    });
+                                    @endforeach
+                            </script>
                             </div>
                         </div>
                     </div>
