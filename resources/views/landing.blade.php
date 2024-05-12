@@ -6,10 +6,10 @@
         <div id="bannerCarousel" class="carousel slide mb-4" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://via.placeholder.com/1200x400?text=Image+1" class="d-block w-100" alt="Image 1">
+                    <img src="{{ asset('assets/image/banner/1.jpg') }}" class="d-block w-100" alt="Image 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://via.placeholder.com/1200x400?text=Image+2" class="d-block w-100" alt="Image 2">
+                    <img src="{{ asset('assets/image/banner/2.jpg') }}" class="d-block w-100" alt="Image 2">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">

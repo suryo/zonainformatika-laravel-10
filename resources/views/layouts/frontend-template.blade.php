@@ -11,18 +11,18 @@
         integrity="sha384-ez0yXQCTt7KT50xFwa7zr56z7zc5p5fjo9r7sSPS1cz6Qc7g3mBSsbVaoK7xS+Up" crossorigin="anonymous">
     <script src="{{ asset('plugin/ckeditor/build/ckeditor.js') }}"></script>
 
-    <style>  
-        .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {  
-            border:0px !important;  
-        }  
-    </style> 
+    <style>
+        .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+            border: 0px !important;
+        }
+    </style>
     <style>
         textarea {
             border: none;
             outline: none;
         }
 
-        
+
 
         /* Custom styles */
         header {
@@ -144,7 +144,11 @@
     <!-- Header -->
     <header>
         <div>
-            <h3>ZonaInformatika</h3>
+            <img src="{{ asset('assets/image/logo/logo-square.png') }}"
+                style="padding-left: 50px ;
+                padding-right: 80px ;
+            max-width: 100%;
+            height: auto;" alt="Image 1">
         </div>
         <!-- Hamburger menu checkbox -->
         <input type="checkbox" id="menu-toggle" hidden>

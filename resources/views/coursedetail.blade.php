@@ -100,7 +100,7 @@
                                                 <!-- Kolom untuk informasi detail -->
                                                 <div class={{ $detail->video == null ? 'col-md-12 col-sm-12 text-left' : 'col-md-6 col-sm-12 text-left' }}
                                                     style="padding-left: 20px;">
-                                                    <h2>{{ $detail->title }}</h2>
+                                                    {{-- <h2>{{ $detail->title }}</h2> --}}
                                                     <p>{!! $detail->short_desc !!}</p>
                                                     <textarea class="ckeditor" id="konten" name="description" rows="4">{{ $detail->text }}</textarea>
                                                     <p>{{ $detail->type }}</p>
