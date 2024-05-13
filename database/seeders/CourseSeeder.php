@@ -346,5 +346,20 @@ class CourseSeeder extends Seeder
             'technology_id'=> 1,
             'video' => ''
         ]);
+
+        Course::create([
+            'title' => 'Analisa & Perancangan Sistem Informasi',
+            'short_desc' => 'Pada tutorial ini, kita akan belajar dasar-dasar analisa dan perancangan sistem informasi sehingga kamu akan paham bagaimana langkah-langkah melakukan analisa sisten dan melakukan perancangan sistem informasi.',
+            'text' => 'Dalam kelas online ini kamu akan belajar tentang analisa dan perancangan sistem informasi. Materi belajar telah disusun sedemikian rupa agar kamu mudah dalam memahaminya.',
+            'type' => '-',
+            'image' => 'apsi.png',
+            'price' => 0,
+            'author' => 'Suryo Atmojo',
+            'slug' => 'apsi',
+            'status'=> 'inactive',
+            'category_id'=> 1,
+            'technology_id'=> 1,
+            'video' => ''
+        ]);
     }
 }

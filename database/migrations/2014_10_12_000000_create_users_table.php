@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('kecamatan')->nullable();
             $table->text('alamat')->nullable();
             $table->string('kodepos')->nullable();
+            $table->string('tempat_lahir')->nullable(); // Tambahkan field tempat_lahir
+            $table->date('tanggal_lahir')->nullable(); // Tambahkan field tanggal_lahir
             $table->rememberToken();
             $table->timestamps();
         });

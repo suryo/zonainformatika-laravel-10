@@ -60,26 +60,93 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
+
                             <input type="hidden" name="role" id="role" value="4">
-                            {{-- <div class="form-group row">
-                                <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="form-group row">
+                                <label for="kampus" class="col-md-4 col-form-label text-md-right">{{ __('Phone WA') }}</label>
 
                                 <div class="col-md-8">
-                                    
-                                    <select name="role" id="role" class="form-control @error('role') is-invalid @enderror">
-                                        <option value="1">Super Admin</option>
-                                        <option value="2">Admin</option>
-                                        <option value="3">Tutor</option>
-                                        <option value="4">User</option>
-                                    </select>
+                                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
 
-                                    @error('role')
+                                    @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-                            </div> --}}
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="tempat_lahir" class="col-md-4 col-form-label text-md-right">{{ __('Tempat Lahir') }}</label>
+
+                                <div class="col-md-8">
+                                    <input id="tempat_lahir" type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" value="{{ old('tempat_lahir') }}" required autocomplete="tempat_lahir">
+
+                                    @error('tempat_lahir')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="tanggal_lahir" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Lahir') }}</label>
+
+                                <div class="col-md-8">
+                                    <input id="tanggal_lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required autocomplete="tanggal_lahir">
+
+                                    @error('tanggal_lahir')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                
+                                <div class="col-md-12">
+                            <p>*tambahkan data dibawah ini jika anda seorang mahasiswa/mahasiswi</p>
+                            <p>dapatkan promo khusus untuk mahasiswa</p>
+                        </div>
+                        </div>
+
+                            <!-- New Fields -->
+                            <div class="form-group row">
+                                <label for="nim" class="col-md-4 col-form-label text-md-right">{{ __('NIM') }}</label>
+
+                                <div class="col-md-8">
+                                    <input id="nim" type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" >
+
+                                    @error('nim')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="kampus" class="col-md-4 col-form-label text-md-right">{{ __('Kampus') }}</label>
+
+                                <div class="col-md-8">
+                                    <input id="kampus" type="text" class="form-control @error('kampus') is-invalid @enderror" name="kampus" value="{{ old('kampus') }}" >
+
+                                    @error('kampus')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            
+
+                           
+
+                            <!-- End of New Fields -->
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">

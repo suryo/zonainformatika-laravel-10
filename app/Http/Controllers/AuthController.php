@@ -18,11 +18,14 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        //dd($request->tanggal_lahir);
         // Validasi input pengguna
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|date',
             // 'role' => 'required|exists:roles,id', // Pastikan role yang dipilih ada dalam tabel roles
         ]);
 
@@ -32,6 +35,11 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'role_id' => $request->role,
+            'phone' => $request->phone,
+            'tempat_lahir' => $request->tempat_lahir,
+        'tanggal_lahir' => $request->tanggal_lahir,
+            'nim' => $request->nim,
+            'kampus' => $request->kampus,
         ]);
 
         return redirect()->route('landing');

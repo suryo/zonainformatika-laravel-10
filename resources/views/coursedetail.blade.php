@@ -103,8 +103,8 @@
                                                 {{-- <h2>{{ $detail->title }}</h2> --}}
                                                 <p>{!! $detail->short_desc !!}</p>
                                                 <textarea class="ckeditor" id="konten{{ $detail->id }}" name="description" rows="4">{{ $detail->text }}</textarea>
-                                                <p>{{ $detail->type }}</p>
-                                                <p>Author: {{ $detail->author }}</p>
+                                                {{-- <p>{{ $detail->type }}</p>
+                                                <p>Author: {{ $detail->author }}</p> --}}
                                             </div>
                                         </div>
                                     </div>

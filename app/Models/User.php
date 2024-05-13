@@ -33,6 +33,8 @@ class User extends Authenticatable implements JWTSubject
         'kecamatan',
         'alamat',
         'kodepos',
+        'tempat_lahir',
+        'tanggal_lahir'
     ];
 
     /**
