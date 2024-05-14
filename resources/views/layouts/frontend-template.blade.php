@@ -166,8 +166,8 @@
             <ul>
                 <li><a href="/" class="btn btn-link" style="color: white";>Home</a></li>
                 <li><a href="/about" class="btn btn-link" style="color: white";>About</a></li>
-                <li><a href="/services" class="btn btn-link" style="color: white";>Services</a></li>
-                <li><a href="/contact" class="btn btn-link" style="color: white";>Contact</a></li>
+                {{-- <li><a href="/services" class="btn btn-link" style="color: white";>Services</a></li>
+                <li><a href="/contact" class="btn btn-link" style="color: white";>Contact</a></li> --}}
                 @auth
                     @if (auth()->user()->role_id == 1)
                         <li><a href="{{ route('dashboard') }}" class="btn btn-link" style="color: white";>Dashboard</a></li>
