@@ -27,7 +27,7 @@ class CourseController extends Controller
         $cours->text = $request->input('text');
         $cours->short_desc = $request->input('short_desc');
         $cours->text = $request->input('description');
-       
+        $cours->image = $request->input('image');
         $cours->author = $request->input('author');
         $cours->slug = $request->input('slug');
 

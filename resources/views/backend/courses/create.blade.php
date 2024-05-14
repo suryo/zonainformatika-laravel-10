@@ -17,6 +17,11 @@
                 <label for="title">Author:</label>
                 <input type="text" class="form-control" id="author" name="author">
             </div>
+
+            <div class="form-group">
+                <label for="title">Image:</label>
+                <input type="text" class="form-control" id="image" name="image">
+            </div>
             
                 <input type="hidden" class="form-control" id="slug" name="category_id" value=1>
             
