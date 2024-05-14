@@ -208,7 +208,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer style="z-index: 1000">
         <div class="container">
             <p>&copy; 2024 ZonaInformatika Surabaya</p>
         </div>
