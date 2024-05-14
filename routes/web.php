@@ -20,6 +20,8 @@ use App\Http\Controllers\Backend\CourseRoadmapController;
 use App\Http\Controllers\Backend\CourseTechnologyController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\OrderDetailController;
+use App\Http\Controllers\Backend\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,8 @@ Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 
 
 Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
+Route::resource('users', UserController::class);
+
 Route::resource('courses', CourseController::class);
 Route::resource('course_categories', CourseCategoryController::class);
 // Route::resource('course_details', CourseDetailController::class);

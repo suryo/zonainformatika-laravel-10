@@ -125,6 +125,9 @@
             <li><a href="{{ route('dashboard') }}" style="color: #333;"><i class="bi bi-house-door"></i> Dashboard</a>
             </li> <!-- Warna biru untuk tautan -->
             <hr>
+            <li><a href="{{ route('users.index') }}" style="color: #333;"><i class="bi bi-laptop"></i>
+                Users</a></li> <!-- Warna biru untuk tautan -->
+            <hr>
             <li><a href="{{ route('course_technologies.index') }}" style="color: #333;"><i class="bi bi-laptop"></i>
                     Course Technology</a></li> <!-- Warna biru untuk tautan -->
             <li><a href="{{ route('course_categories.index') }}" style="color: #333;"><i class="bi bi-collection"></i>
@@ -160,7 +163,7 @@
     </div>
 
     <!-- Footer -->
-    <footer>
+    <footer style="z-index: 1000">
         <!-- Add your footer content here -->
         <p>&copy; 2024 Zonainformatika
     </footer>
