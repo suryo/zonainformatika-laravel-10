@@ -24,7 +24,7 @@
             </div>
 
             <div class="form-group">
-                <label for="title">Image:</label>
+                <label for="title">Slug:</label>
                 <input type="text" class="form-control" id="slug" name="slug">
             </div>
             
