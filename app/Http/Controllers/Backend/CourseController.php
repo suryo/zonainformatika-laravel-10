@@ -22,6 +22,25 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         Course::create($request->all());
+//         $cours = new Course();
+//         $cours->title = $request->input('title');
+//         $cours->text = $request->input('text');
+//         $cours->short_desc = $request->input('short_desc');
+//         $cours->text = $request->input('text');
+//         $cours->type = $request->input('type');
+//         $cours->image = $request->input('image');
+//         $cours->video = $request->input('video');
+//         $cours->quote_text = $request->input('quote_text');
+//         $cours->quote_author = $request->input('quote_author');
+//         $cours->author = $request->input('author');
+//         $cours->slug = $request->input('slug');
+//         $cours->status = $request->input('status');
+//         $cours->order = $request->input('order');
+//         $cours->deleted = $request->input('deleted');
+//         $cours->category_id = $request->input('category_id');
+// //dd($request->input('text'));
+//         $cours->image = $fileNameToStore; // Assign the image name
+//         $cours->save();
         return redirect()->route('courses.index');
     }
 

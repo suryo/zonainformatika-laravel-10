@@ -13,6 +13,13 @@
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" name="text" rows="4"></textarea>
             </div>
+            <div class="form-group">
+                <label for="title">Author:</label>
+                <input type="text" class="form-control" id="author" name="author">
+            </div>
+            
+                <input type="hidden" class="form-control" id="slug" name="category_id" value=1>
+            
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
