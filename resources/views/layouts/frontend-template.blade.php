@@ -136,6 +136,10 @@
             #menu-toggle {
                 display: none;
             }
+
+            .ck.ck-editor__editable .image-inline {
+            z-index: unset !important;
+            }
         }
     </style>
 </head>
