@@ -22,8 +22,13 @@
                 <label for="title">Image:</label>
                 <input type="text" class="form-control" id="image" name="image">
             </div>
+
+            <div class="form-group">
+                <label for="title">Image:</label>
+                <input type="text" class="form-control" id="slug" name="slug">
+            </div>
             
-                <input type="hidden" class="form-control" id="slug" name="category_id" value=1>
+                <input type="hidden" class="form-control" id="category_id" name="category_id" value=1>
             
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
