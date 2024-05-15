@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <label for="description">Short Desc:</label>
-            <textarea class="form-control" id="editor" name="short_desc" rows="4">{{ $courseDetail->short_desc }}</textarea>
+            <textarea class="form-control" id="short_desc" name="short_desc" rows="4">{{ $courseDetail->short_desc }}</textarea>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
