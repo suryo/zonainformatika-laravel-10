@@ -64,7 +64,7 @@
                             <input type="hidden" name="role" id="role" value="4">
 
                             <div class="form-group row">
-                                <label for="kampus" class="col-md-4 col-form-label text-md-right">{{ __('Phone WA') }}</label>
+                                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone WA') }}</label>
 
                                 <div class="col-md-8">
                                     <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
@@ -106,19 +106,17 @@
                             </div>
 
                             <div class="form-group row">
-                                
                                 <div class="col-md-12">
-                            <p>*tambahkan data dibawah ini jika anda seorang mahasiswa/mahasiswi</p>
-                            <p>dapatkan promo khusus untuk mahasiswa</p>
-                        </div>
-                        </div>
+                                    <p>*tambahkan data dibawah ini jika anda seorang mahasiswa/mahasiswi</p>
+                                    <p>dapatkan promo khusus untuk mahasiswa</p>
+                                </div>
+                            </div>
 
-                            <!-- New Fields -->
                             <div class="form-group row">
                                 <label for="nim" class="col-md-4 col-form-label text-md-right">{{ __('NIM') }}</label>
 
                                 <div class="col-md-8">
-                                    <input id="nim" type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" >
+                                    <input id="nim" type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}">
 
                                     @error('nim')
                                         <span class="invalid-feedback" role="alert">
@@ -132,7 +130,7 @@
                                 <label for="kampus" class="col-md-4 col-form-label text-md-right">{{ __('Kampus') }}</label>
 
                                 <div class="col-md-8">
-                                    <input id="kampus" type="text" class="form-control @error('kampus') is-invalid @enderror" name="kampus" value="{{ old('kampus') }}" >
+                                    <input id="kampus" type="text" class="form-control @error('kampus') is-invalid @enderror" name="kampus" value="{{ old('kampus') }}">
 
                                     @error('kampus')
                                         <span class="invalid-feedback" role="alert">
@@ -141,12 +139,6 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            
-
-                           
-
-                            <!-- End of New Fields -->
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">

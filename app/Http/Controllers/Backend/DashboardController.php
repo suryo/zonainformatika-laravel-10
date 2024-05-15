@@ -30,6 +30,7 @@ class DashboardController extends Controller
             $courseCategoriesCount = CourseCategory::count();
             $courseRoadmapsCount = CourseRoadmap::count();
             $courseTechnologiesCount = CourseTechnology::count();
+            $userCount = User::count();
 
             $OrderCount = Order::count();
     
@@ -48,7 +49,7 @@ class DashboardController extends Controller
             }
 
             // Jika peran adalah 'super admin', 'admin', atau 'tutor', tampilkan halaman dashboard
-            return view('backend.dashboard.superadmin',compact('coursesCount', 'courseCategoriesCount', 'courseRoadmapsCount', 'courseTechnologiesCount', 'OrderCount'));
+            return view('backend.dashboard.superadmin',compact('userCount','coursesCount', 'courseCategoriesCount', 'courseRoadmapsCount', 'courseTechnologiesCount', 'OrderCount'));
         }
 
         // Jika pengguna belum login, arahkan ke halaman login

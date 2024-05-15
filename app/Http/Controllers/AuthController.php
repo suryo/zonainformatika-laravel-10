@@ -16,35 +16,32 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request)
-    {
-        //dd($request->tanggal_lahir);
-        // Validasi input pengguna
-        $this->validate($request, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-            'tempat_lahir' => 'required|string|max:255',
-            'tanggal_lahir' => 'required|date',
-            // 'role' => 'required|exists:roles,id', // Pastikan role yang dipilih ada dalam tabel roles
-        ]);
+public function register(Request $request)
+{
+    // Validasi input pengguna
+    $this->validate($request, [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8|confirmed',
+        'tempat_lahir' => 'required|string|max:255',
+        'tanggal_lahir' => 'required|date',
+    ]);
 
-        // Membuat pengguna baru
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'role_id' => $request->role,
-            'phone' => $request->phone,
-            'tempat_lahir' => $request->tempat_lahir,
+    // Membuat pengguna baru
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role_id' => $request->role,
+        'phone' => $request->phone,
+        'tempat_lahir' => $request->tempat_lahir,
         'tanggal_lahir' => $request->tanggal_lahir,
-            'nim' => $request->nim,
-            'kampus' => $request->kampus,
-        ]);
+        'nim' => $request->nim,
+        'kampus' => $request->kampus,
+    ]);
 
-        return redirect()->route('landing');
-        // Redireksi atau respons sesuai kebutuhan Anda
-    }
+    return redirect()->route('landing')->with('success', 'User registered successfully.');
+}
 
     public function showLoginForm()
     {

@@ -4,7 +4,7 @@
     <div class="container">
         super admin
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Order</h5>
@@ -13,8 +13,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User</h5>
+                        <p class="card-text">{{ $userCount }}</p>
+                        <a href="{{ route('users.index') }}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
