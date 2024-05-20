@@ -30,6 +30,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('coursecategories', [CoursecategoryController::class, 'index']);
 Route::get('coursecategories/{id}', [CoursecategoryController::class, 'show']);
 
+Route::get('course', [CourseController::class, 'index']);
+
 Route::post('login', [LoginController::class, 'index']);
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('/logout', [LogoutController::class, 'index']);

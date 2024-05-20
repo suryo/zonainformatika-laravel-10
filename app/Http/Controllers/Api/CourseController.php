@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CourseCategory;
+use App\Models\Course;
+use Illuminate\Http\Response;
 
 class CourseController extends Controller
 {
@@ -12,7 +15,12 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $courses = Course::all();
+            return response()->json(['status' => 'success', 'data' => $courses], Response::HTTP_OK);
+            } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
     }
 
     /**
