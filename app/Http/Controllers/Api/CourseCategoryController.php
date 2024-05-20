@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\CourseCategory;
 use App\Models\Course;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
+
 
 
 class CourseCategoryController extends Controller
@@ -16,8 +18,12 @@ class CourseCategoryController extends Controller
      */
     public function index()
     {
+        try {
         $coursecategories = CourseCategory::all();
-        return response()->json($coursecategories);
+        return response()->json(['status' => 'success', 'data' => $coursecategories], Response::HTTP_OK);
+        } catch (\Exception $e) {
+        return response()->json(['status' => 'error', 'message' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
