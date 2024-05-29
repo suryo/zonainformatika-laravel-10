@@ -17,6 +17,11 @@ class Course extends Model
         'category_id', 'technology_id', 'deleted'
     ];
 
+    public function courseDetails()
+    {
+    return $this->hasMany(CourseDetail::class, 'id_course');
+    }
+
     // Definisikan hubungan dengan model CourseCategory
     public function category()
     {

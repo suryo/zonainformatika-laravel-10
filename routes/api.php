@@ -12,6 +12,8 @@ use App\Http\Controllers\Api\CourseDetailController;
 use App\Http\Controllers\Api\CourseRoadmapController;
 use App\Http\Controllers\Api\CourseTechnologyController;
 
+use App\Http\Controllers\Api\ProjectController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,6 +33,12 @@ Route::get('coursecategories', [CoursecategoryController::class, 'index']);
 Route::get('coursecategories/{id}', [CoursecategoryController::class, 'show']);
 
 Route::get('course', [CourseController::class, 'index']);
+
+Route::get('projects', [ProjectController::class, 'index']);
+Route::post('projects', [ProjectController::class, 'store']);
+Route::get('projects/{id}', [ProjectController::class, 'show']);
+Route::put('projects/{id}', [ProjectController::class, 'update']);
+Route::delete('projects/{id}', [ProjectController::class, 'destroy']);
 
 Route::post('login', [LoginController::class, 'index']);
 Route::group(['middleware' => ['jwt.verify']], function () {

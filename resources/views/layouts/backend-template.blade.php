@@ -128,6 +128,16 @@
             <li><a href="{{ route('users.index') }}" style="color: #333;"><i class="bi bi-laptop"></i>
                 Users</a></li> <!-- Warna biru untuk tautan -->
             <hr>
+
+            <li><a href="{{ route('article.index') }}" style="color: #333;"><i class="bi bi-laptop"></i>
+                Article</a></li>
+            <li><a href="{{ route('articlecategory.index') }}" style="color: #333;"><i class="bi bi-laptop"></i>
+                Article Category</a></li>
+            <li><a href="{{ route('project.index') }}" style="color: #333;"><i class="bi bi-laptop"></i>
+                Project</a></li>
+
+            <hr>
+            
             <li><a href="{{ route('course_technologies.index') }}" style="color: #333;"><i class="bi bi-laptop"></i>
                     Course Technology</a></li> <!-- Warna biru untuk tautan -->
             <li><a href="{{ route('course_categories.index') }}" style="color: #333;"><i class="bi bi-collection"></i>

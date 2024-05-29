@@ -9,7 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
 
-
+use App\Http\Controllers\FrontArticleController;
 
 use App\Http\Controllers\Backend\DashboardController;
 
@@ -21,6 +21,10 @@ use App\Http\Controllers\Backend\CourseTechnologyController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\OrderDetailController;
 use App\Http\Controllers\Backend\UserController;
+
+use App\Http\Controllers\Backend\ArticleCategoryController;
+use App\Http\Controllers\Backend\ArticleController;
+use App\Http\Controllers\Backend\ProjectController;
 
 
 /*
@@ -49,6 +53,8 @@ Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show')
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
+Route::get('/article', [FrontArticleController::class, 'index'])->name('article');
+
 
 
 // Route untuk menampilkan form registrasi
@@ -75,7 +81,6 @@ Route::resource('users', UserController::class);
 
 Route::resource('courses', CourseController::class);
 Route::resource('course_categories', CourseCategoryController::class);
-// Route::resource('course_details', CourseDetailController::class);
 Route::get('/course/{slug}/list', [CourseDetailController::class, 'listcoursedetail'])->name('coursesdetail.list');
 Route::get('/course/{course_id}/details/create', [CourseDetailController::class,'create'])->name('coursedetail.create');
 Route::post('/course/{course_id}/details/store', [CourseDetailController::class,'store'])->name('coursedetail.store');
@@ -96,3 +101,9 @@ Route::resource('course_roadmaps', CourseRoadmapController::class);
 Route::resource('course_technologies', CourseTechnologyController::class);
 Route::resource('roadmaps', CourseRoadmapController::class);
 Route::resource('orders', OrderController::class);
+
+Route::resource('dashboard/articlecategory',ArticleCategoryController::class);
+Route::resource('dashboard/article',ArticleController::class);
+Route::resource('dashboard/project',ProjectController::class);
+
+Route::get('/landing', [LandingController::class, 'landing'])->name('newlanding');

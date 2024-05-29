@@ -11,14 +11,67 @@ use App\Models\Cart;
 
 class LandingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // $courses =  Course::all();
-        $courses = Course::where('deleted', 'false')
-        ->where('status','=','active')->get();
+        $categories = $request->input('categories');
+
+        $technologies = $request->input('technologies');
+
+
+        // Ambil data kursus berdasarkan kategori jika ada
+        if ($categories) {
+            $courses = Course::where('deleted', 'false')
+            ->where('status','=','active')
+            ->where('category_id', $categories)
+            ->get();
+        } else {
+            $courses = Course::where('deleted', 'false')
+            ->where('status','=','active')->get();
+        }
+      
+        if ($technologies) {
+            $courses = Course::where('deleted', 'false')
+            ->where('status','=','active')
+            ->where('technology_id', $technologies)
+            ->get();
+        } else {
+            $courses = Course::where('deleted', 'false')
+            ->where('status','=','active')->get();
+        }
 
       
         return view('landing', compact('courses'));
+    }
+
+    public function landing()
+    {
+        $courses = Course::where('course.deleted', 'false')
+        ->where('course.status','=','active')
+        ->join('course_category', 'course_category.id', '=', 'course.category_id')
+        ->leftjoin('course_technology', 'course_technology.id', '=', 'course.technology_id')
+        ->select('course.*', 'course_category.name as category', 'course_technology.name as technology')
+        ->with('courseDetails')
+        ->get();
+        
+        // foreach ($courses as $course) {
+        //     dump("Course Title: " . $course->title . "\n");
+        //     dump(count($course->courseDetails));
+        //     // Akses detail course
+        //     foreach ($course->courseDetails as $detail) {
+        //         dump("Detail Title: " . $detail->title . "\n");
+        //         Tambahkan output detail course lainnya sesuai kebutuhan
+        //     }
+        //     dump("\n");
+        // }
+       
+        
+        
+        // dd("test");
+        
+        
+        
+         //dd($courses);
+        return view('newlanding', compact('courses'));
     }
     public function showCourse($id)
     {

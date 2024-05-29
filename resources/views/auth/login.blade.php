@@ -1,9 +1,9 @@
-@extends('layouts.frontend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
-<div class="container">
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -11,8 +11,8 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="mb-3 row">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -25,8 +25,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="mb-3 row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-info">
                                     {{ __('Login') }}
@@ -52,5 +52,5 @@
         </div>
     </div>
 </div>
-<p class="text-center mt-3">Don't have an account? <a href="{{ route('register') }}">Register</a></p>
+{{-- <p class="text-center mt-3">Don't have an account? <a href="{{ route('register') }}">Register</a></p> --}}
 @endsection
