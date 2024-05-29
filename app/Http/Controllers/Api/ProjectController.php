@@ -48,9 +48,11 @@ class ProjectController extends Controller
             'file_project' => $fileName,
             'slug' => $request->slug,
             'status' => $request->status,
+            'short_desc' => $request->short_desc,
+            'desc' => $request->desc,
         ]);
 
-        return response()->json($project, 201);
+        return response()->json($project, 200);
     }
 
     public function show($id)

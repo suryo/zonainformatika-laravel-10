@@ -18,6 +18,8 @@ class Project extends Model
         'file_project',
         'slug',
         'status',
+        'short_desc',
+        'desc',
         'deleted',
     ];
 }

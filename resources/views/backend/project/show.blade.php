@@ -12,6 +12,8 @@
     @endif</p>
     <p><strong>Slug:</strong> {{ $Project->slug }}</p>
     <p><strong>Status:</strong> {{ $Project->status }}</p>
+    <p><strong>Status:</strong> {{ $Project->short_desc }}</p>
+    <p><strong>Status:</strong> {{ $Project->desc }}</p>
     <a href="{{ route('project.index') }}" class="btn btn-secondary">Back</a>
 </div>
 @endsection
