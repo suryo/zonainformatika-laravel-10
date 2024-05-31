@@ -1,6 +1,5 @@
 <!-- resources/views/course_roadmaps/show.blade.php -->
-
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
     <h1>{{ $roadmap->title }}</h1>

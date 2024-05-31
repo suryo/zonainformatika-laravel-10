@@ -1,4 +1,4 @@
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
     <div class="container pb-5">

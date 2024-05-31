@@ -1,7 +1,7 @@
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
-<div class="container mt-4">
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
     <h1>Article Details</h1>
     <p><strong>ID:</strong> {{ $article->id }}</p>
     <p><strong>Title:</strong> {{ $article->title }}</p>

@@ -3,6 +3,89 @@
     <div class="hover-scroll-overlay-y my-5 my-lg-5 w-100 ps-4 ps-lg-0 pe-4 me-1" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_header" data-kt-scroll-wrappers="#kt_aside" data-kt-scroll-offset="5px">
         <!--begin::Menu-->
         <div class="menu menu-column menu-active-bg menu-hover-bg menu-title-gray-700 fs-6 menu-rounded w-100" id="#kt_aside_menu" data-kt-menu="true">
+            
+            @auth
+            @if (auth()->user()->role_id == 1)
+            <div class="menu-item">
+                <div class="menu-content pb-2">
+                    <span class="menu-section text-muted text-uppercase fs-7 fw-bold">Admin</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('dashboard') }}" class="menu-link">
+                    <span class="menu-title">Dashboard</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('users.index') }}" class="menu-link">
+                    <span class="menu-title">Users</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('article.index') }}" class="menu-link">
+                    <span class="menu-title">Article</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('articlecategory.index') }}" class="menu-link">
+                    <span class="menu-title">Article Category</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('project.index') }}" class="menu-link">
+                    <span class="menu-title">Project</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('course_technologies.index') }}" class="menu-link">
+                    <span class="menu-title">Course Technology</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('course_categories.index') }}" class="menu-link">
+                    <span class="menu-title">Course Category</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('roadmaps.index') }}" class="menu-link">
+                    <span class="menu-title">Roadmap</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('courses.index') }}" class="menu-link">
+                    <span class="menu-title">Courses</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ route('orders.index') }}" class="menu-link">
+                    <span class="menu-title">Orders</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+
+            @endif
+            @endauth
+            
             <!--begin::Heading-->
             <div class="menu-item">
                 <div class="menu-content pb-2">
@@ -85,7 +168,6 @@
             @endforeach
 
           
-         
             <!--begin::Heading-->
             <div class="d-none menu-item">
                 <div class="menu-link">

@@ -1,7 +1,7 @@
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
-<div class="container">
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
     <h1>{{ isset($user) ? 'Edit User' : 'Create User' }}</h1>
     <form action="{{ isset($user) ? route('users.update', $user->id) : route('users.store') }}" method="POST">
         @csrf

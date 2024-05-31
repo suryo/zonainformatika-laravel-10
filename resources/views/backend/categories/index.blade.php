@@ -1,7 +1,7 @@
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
-    <div class="container">
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
         <h1 class="mt-4 mb-4">All Course Categories</h1>
         <a href="{{ route('course_categories.create') }}" class="btn btn-primary mb-4">Add Course Category</a>
         <table class="table">

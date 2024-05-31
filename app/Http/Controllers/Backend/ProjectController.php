@@ -50,11 +50,16 @@ class ProjectController extends Controller
 
     public function show(Project $Project)
     {
-        return view('backend.project.show', compact('Project'));
+        //dd($Project->desc);
+        $lexer = new \nadar\quill\Lexer($Project->desc);
+//dump($lexer->render());
+$htmldesc = ($lexer->render());
+        return view('backend.project.show', compact('Project', 'htmldesc'));
     }
 
     public function edit(Project $Project)
     {
+       
         return view('backend.project.edit', compact('Project'));
     }
 
@@ -65,14 +70,21 @@ class ProjectController extends Controller
             // 'author' => 'required|string|max:191',
             // 'price' => 'nullable|integer',
             // 'file_project' => 'nullable|file|mimes:pdf,doc,docx,zip', // Validate the file
-            'file_project' => 'required|mimes:zip,pdf,xlx,csv|max:2048',
+            // 'file_project' => 'required|mimes:zip,pdf,xlx,csv|max:2048',
             // 'slug' => 'required|string|max:191|unique:article_projects,slug,' . $Project->id,
             // 'status' => 'nullable|string|max:191',
         ]);
 
+        
+        if(($request->name_file_project) == null)
+        {
         $fileName = time().'.'.$request->file_project->extension(); 
         $request->file_project->move(public_path('assets/file_uploads'), $fileName);
-        
+        }
+        else
+        {
+        $fileName = $request->name_file_project;
+        }
 
         $Project->update([
             'project' => $request->project,
@@ -81,6 +93,9 @@ class ProjectController extends Controller
             'file_project' => $fileName,
             'slug' => $request->slug,
             'status' => $request->status,
+            'short_desc' => $request->short_desc,
+            'desc' => $request->desc,
+            
         ]);
 
         return redirect()->route('project.index')->with('success', 'Project updated successfully.');

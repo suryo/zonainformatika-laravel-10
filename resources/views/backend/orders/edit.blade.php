@@ -1,6 +1,4 @@
-<!-- resources/views/orders/edit.blade.php -->
-
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
     <div class="container">

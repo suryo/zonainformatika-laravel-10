@@ -1,8 +1,8 @@
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
-<div class="container mt-4">
-    <h1>Add New Project</h1>
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
+    <h1>New Project</h1>
     <form action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">

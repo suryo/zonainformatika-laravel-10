@@ -1,6 +1,5 @@
 <!-- resources/views/orders/create.blade.php -->
-
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
     <h1>Create Order</h1>

@@ -1,6 +1,4 @@
-<!-- resources/views/course_categories/show.blade.php -->
-
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
     <h1>{{ $category->name }}</h1>

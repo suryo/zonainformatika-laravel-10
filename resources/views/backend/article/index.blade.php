@@ -1,7 +1,7 @@
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
-<div class="container mt-4">
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
     <h1>Articles</h1>
     <a href="{{ route('article.create') }}" class="btn btn-primary mb-3">Add New Article</a>
     <table class="table table-bordered">

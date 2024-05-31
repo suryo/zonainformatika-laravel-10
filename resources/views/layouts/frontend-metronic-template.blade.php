@@ -68,6 +68,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					@yield('content')
 					<!--end::Wrapper-->
+					
 					<!--begin::Sidebar-->
                     <!-- include('layouts.sidebar')-->
 					

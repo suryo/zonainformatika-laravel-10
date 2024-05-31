@@ -1,4 +1,4 @@
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
     <h1>+ Course Detail ({{$course->title}}) {{$idcourse}}</h1>

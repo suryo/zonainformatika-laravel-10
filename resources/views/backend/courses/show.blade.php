@@ -1,6 +1,4 @@
-<!-- resources/views/courses/show.blade.php -->
-
-@extends('layouts.backend-template')
+@extends('layouts.frontend-metronic-template')
 
 @section('content')
     <h1>{{ $course->title }}</h1>
