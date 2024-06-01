@@ -1,7 +1,7 @@
 @extends('layouts.frontend-metronic-template')
 
 @section('content')
-<div class="container">
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
     <h1>All Course Details {{$course_id}}</h1>
     <a href="{{ route('coursedetail.create', $course_id) }}">Add Course Detail</a>
     <table class="table">

@@ -3,7 +3,7 @@
         <div class="col-md-3 mb-3">
             <!-- Course card -->
             <div class="card">
-                <img src="{{ asset('assets/image/course/' . $course->image) }}" class="card-img-top" alt="{{ $course->title }}">
+                <img src="{{ asset('assets/image/course/' . $course->image) }}" class="card-img-top d-none d-md-block" alt="{{ $course->title }}">
                 <div class="card-body">
                     <p class="card-text">{{ $course->title }}</p>
                     <p class="card-text">Author: {{ $course->author }}</p>

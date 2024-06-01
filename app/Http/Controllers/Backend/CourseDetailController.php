@@ -102,7 +102,7 @@ class CourseDetailController extends Controller
 
     public function edit($course_id, $course_detail_id)
     {
-        dump("edit");
+        //dump("edit");
         $courseDetail = CourseDetail::where('id', $course_detail_id)->get();
         $courseDetail = ($courseDetail[0]);
         return view('backend.coursedetail.edit', compact('courseDetail', 'course_id', 'course_detail_id'));
@@ -111,6 +111,7 @@ class CourseDetailController extends Controller
     public function update(Request $request, CourseDetail $detail)
     {
         dump("update");
+        //dd($request->desc);
         // dump($request->course_id);
         // dd($request->course_detail_id);
 
@@ -124,7 +125,7 @@ class CourseDetailController extends Controller
             [
                 'title' => $request->title,
                 'short_desc' => $request->short_desc,
-                'text' => $request->description,
+                'text' => $request->desc,
         'status' => $request->status]);
 
         // $update = $coursedetail->update($request->all());

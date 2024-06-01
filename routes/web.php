@@ -10,6 +10,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\FrontArticleController;
+use App\Http\Controllers\FrontProjectController;
 
 use App\Http\Controllers\Backend\DashboardController;
 
@@ -54,6 +55,8 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/article', [FrontArticleController::class, 'index'])->name('article');
+Route::get('/project', [FrontProjectController::class, 'index'])->name('project');
+Route::get('/project/{id}', [FrontProjectController::class, 'showProject'])->name('project.detail');
 
 
 

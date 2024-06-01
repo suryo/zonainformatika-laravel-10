@@ -109,14 +109,21 @@
             <div class="menu-item">
                 <a href="{{ url('article') }}" class="menu-link">
                     <span class="menu-title">Article</span>
+                    <span class="badge rounded-pill bg-danger">
+                        NEW
+                      </span>
                 </a>
             </div>
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item">
                 <a href="{{ url('project') }}" class="menu-link">
-                    <span class="menu-title">Project + Source Code</span>
+                    <span class="menu-title">Project & Code</span>
+                    <span class="badge rounded-pill bg-danger">
+                        NEW
+                      </span>
                 </a>
+               
             </div>
             <!--end::Menu item-->
           

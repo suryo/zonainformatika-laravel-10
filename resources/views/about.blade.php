@@ -86,8 +86,8 @@
     <p>Dengan komitmen untuk memberikan akses pendidikan yang mudah dan berkualitas, Zonainformatika bertujuan untuk menjadi mitra pembelajaran yang terpercaya bagi mereka yang ingin mengembangkan karir mereka di dunia teknologi. Kami menyediakan berbagai kursus dan materi pembelajaran yang dirancang untuk memenuhi kebutuhan belajar beragam, mulai dari pemula hingga tingkat lanjutan.</p>
     <p>Dalam beberapa tahun mendatang, Zonainformatika bertekad untuk berkembang menjadi salah satu platform belajar terkemuka di bidang teknologi dan informatika di Indonesia. Dengan dukungan komunitas yang kuat dan komitmen untuk terus meningkatkan kualitas layanan, kami yakin dapat menjadi mitra yang berharga bagi generasi muda Indonesia dalam meraih kesuksesan di era digital.</p>
     
-    <h2>Timeline</h2>
-    <div class="timeline">
+    <h2 class="d-none">Timeline</h2>
+    <div class="d-none timeline">
         <div class="timeline-item">
             <div class="timeline-content">
                 <div class="timeline-date">2020</div>

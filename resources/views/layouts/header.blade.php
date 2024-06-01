@@ -1330,7 +1330,12 @@
                 <!--begin::Theme mode-->
                 <div class="d-flex align-items-center ms-1 ms-lg-2">
                     <!--begin::Menu toggle-->
+                  
                     <a href="#" class="btn btn-icon btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                        <span class="badge rounded-pill bg-danger">
+                            NEW -> 
+                          </span>
+                          &nbsp;
                         <i class="ki-duotone ki-night-day theme-light-show fs-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
@@ -1406,12 +1411,12 @@
                 <!--end::Theme mode-->
                 <!--begin::Sidebar Toggler-->
                 <div class="d-flex align-items-center ms-1 ms-lg-2 d-lg-none" title="Show header menu">
-                    <button class="btn btn-icon btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" id="kt_sidebar_toggle">
+                    {{-- <button class="btn btn-icon btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" id="kt_sidebar_toggle">
                         <i class="ki-duotone ki-document fs-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
                         </i>
-                    </button>
+                    </button> --}}
                 </div>
                 <!--end::Sidebar Toggler-->
                 <!--begin::User-->
