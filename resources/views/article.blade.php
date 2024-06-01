@@ -31,10 +31,10 @@
                     <!--begin::Head-->
                     <div class="d-flex align-items-center mb-4">
                         <!--begin::Title-->
-                        <a href="apps/devs/question.html" class="fs-2 fw-bold text-gray-900 text-hover-primary me-1">{{ $article->title }}</a>
+                        <a href="{{ route('article.detail', ['id' => $article->id]) }}" class="fs-2 fw-bold text-gray-900 text-hover-primary me-1">{{ $article->title }}</a>
                         <!--end::Title-->
                         <!--begin::Icons-->
-                        <div class="d-flex align-items-center">
+                        <div class="d-none d-flex align-items-center">
                             <span class="ms-1" data-bs-toggle="tooltip" title="New question">
                                 <i class="ki-duotone ki-information-5 text-primary fs-1">
                                     <span class="path1"></span>
@@ -61,7 +61,7 @@
                         <div class="d-flex align-items-center py-1">
                             <!--begin::Symbol-->
                             <div class="symbol symbol-35px me-2">
-                                <div class="symbol-label bg-light-success fs-3 fw-semibold text-success text-uppercase">J</div>
+                                <div class="symbol-label bg-light-success fs-3 fw-semibold text-success text-uppercase">></div>
                             </div>
                             <!--end::Symbol-->
                             <!--begin::Name-->
@@ -79,10 +79,10 @@
                             {{-- <a href="apps/devs/question.html#answers" class="btn btn-sm btn-outline btn-outline-dashed btn-outline-default px-4 me-2">{{ $article->technology }}</a> --}}
                             <!--end::Answers-->
                             <!--begin::Tags-->
-                            <a href="apps/devs/tag.html" class="btn btn-sm btn-light px-4 me-2">{{ $article->category_id }}</a>
+                            {{-- <a href="apps/devs/tag.html" class="btn btn-sm btn-light px-4 me-2">{{ $article->category_id }}</a> --}}
                             <!--end::Tags-->
                             <!--begin::Upvote-->
-                            <a href="{{ route('course.detail', ['id' => $article->id]) }}" class="btn btn-sm btn-flex btn-light px-3" data-bs-toggle="tooltip" title="Upvote this question" data-bs-dismiss="click">  
+                            <a href="{{ route('article.detail', ['id' => $article->id]) }}" class="btn btn-sm btn-flex btn-light px-3" data-bs-toggle="tooltip" title="Upvote this question" data-bs-dismiss="click">More..  
                             <i class="ki-duotone ki-black-right fs-3ms-2 me-0 fs-3"></i></a>
                             <!--end::Upvote-->
                         </div>

@@ -55,6 +55,7 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/article', [FrontArticleController::class, 'index'])->name('article');
+Route::get('/article/{id}', [FrontArticleController::class, 'showArticle'])->name('article.detail');
 Route::get('/project', [FrontProjectController::class, 'index'])->name('project');
 Route::get('/project/{id}', [FrontProjectController::class, 'showProject'])->name('project.detail');
 

@@ -23,7 +23,7 @@ class FrontArticleController extends Controller
         $user = auth()->user();
         $article = Article::find($id);
        
-        return view('coursedetail', compact('article'));
+        return view('articledetail', compact('article'));
     }
 
     public function search(Request $request)
