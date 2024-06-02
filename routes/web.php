@@ -12,6 +12,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FrontArticleController;
 use App\Http\Controllers\FrontProjectController;
 
+use App\Http\Controllers\MessageController;
+
 use App\Http\Controllers\Backend\DashboardController;
 
 use App\Http\Controllers\Backend\CourseController;
@@ -59,6 +61,13 @@ Route::get('/article/{id}', [FrontArticleController::class, 'showArticle'])->nam
 Route::get('/project', [FrontProjectController::class, 'index'])->name('project');
 Route::get('/project/{id}', [FrontProjectController::class, 'showProject'])->name('project.detail');
 
+Route::get('messages/{userId?}', [MessageController::class, 'index'])->name('messages.index');
+Route::get('messages/create', [MessageController::class, 'create'])->name('messages.create');
+// Route::get('messages/{id}', [MessageController::class, 'fetchMessages'])->name('messages.fetch');
+Route::post('messages', [MessageController::class, 'store'])->name('msg.store');
+Route::get('messages/{message}', [MessageController::class, 'show'])->name('messages.show');
+// Route::post('messages', [MessageController::class, 'sendMessage'])->name('messages.send');
+
 
 
 // Route untuk menampilkan form registrasi
@@ -80,24 +89,24 @@ Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm']
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 
 
-Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('users', UserController::class);
 
 Route::resource('courses', CourseController::class);
 Route::resource('course_categories', CourseCategoryController::class);
 Route::get('/course/{slug}/list', [CourseDetailController::class, 'listcoursedetail'])->name('coursesdetail.list');
-Route::get('/course/{course_id}/details/create', [CourseDetailController::class,'create'])->name('coursedetail.create');
-Route::post('/course/{course_id}/details/store', [CourseDetailController::class,'store'])->name('coursedetail.store');
-Route::get('/course/{course}/details/{course_detail_id}/edit', [CourseDetailController::class,'edit'])->name('coursedetail.edit');
-Route::post('/course/{course_id}/details/update', [CourseDetailController::class,'update'])->name('coursedetail.update');
-Route::post('/course/{course_id}/details/{course_detail_id}/destroy', [CourseDetailController::class,'destroy'])->name('coursedetail.destroy');
+Route::get('/course/{course_id}/details/create', [CourseDetailController::class, 'create'])->name('coursedetail.create');
+Route::post('/course/{course_id}/details/store', [CourseDetailController::class, 'store'])->name('coursedetail.store');
+Route::get('/course/{course}/details/{course_detail_id}/edit', [CourseDetailController::class, 'edit'])->name('coursedetail.edit');
+Route::post('/course/{course_id}/details/update', [CourseDetailController::class, 'update'])->name('coursedetail.update');
+Route::post('/course/{course_id}/details/{course_detail_id}/destroy', [CourseDetailController::class, 'destroy'])->name('coursedetail.destroy');
 
 Route::get('/coursesearch', [LandingController::class, 'search'])->name('course.search');
 
-Route::put('/course/{id}/updateStatus', [CourseController::class,'updateStatus'])->name('courses.updateStatus');
+Route::put('/course/{id}/updateStatus', [CourseController::class, 'updateStatus'])->name('courses.updateStatus');
 
-Route::put('/orders/{id}/updatePaymentStatus', [OrderController::class,'updatePaymentStatus'])->name('orders.updatePaymentStatus');
-Route::put('/orderdetails/{id}', [OrderDetailController::class,'updateStatus'])->name('orderdetails.update');
+Route::put('/orders/{id}/updatePaymentStatus', [OrderController::class, 'updatePaymentStatus'])->name('orders.updatePaymentStatus');
+Route::put('/orderdetails/{id}', [OrderDetailController::class, 'updateStatus'])->name('orderdetails.update');
 
 
 
@@ -106,8 +115,8 @@ Route::resource('course_technologies', CourseTechnologyController::class);
 Route::resource('roadmaps', CourseRoadmapController::class);
 Route::resource('orders', OrderController::class);
 
-Route::resource('dashboard/articlecategory',ArticleCategoryController::class);
-Route::resource('dashboard/article',ArticleController::class);
-Route::resource('dashboard/project',ProjectController::class);
+Route::resource('dashboard/articlecategory', ArticleCategoryController::class);
+Route::resource('dashboard/article', ArticleController::class);
+Route::resource('dashboard/project', ProjectController::class);
 
 Route::get('/landing', [LandingController::class, 'landing'])->name('newlanding');

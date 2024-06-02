@@ -14,6 +14,8 @@ use App\Http\Controllers\Api\CourseTechnologyController;
 
 use App\Http\Controllers\Api\ProjectController;
 
+use App\Http\Controllers\Api\MessageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,6 +41,11 @@ Route::post('projects', [ProjectController::class, 'store']);
 Route::get('projects/{id}', [ProjectController::class, 'show']);
 Route::put('projects/{id}', [ProjectController::class, 'update']);
 Route::delete('projects/{id}', [ProjectController::class, 'destroy']);
+
+
+Route::apiResource('messages', MessageController::class);
+
+
 
 Route::post('login', [LoginController::class, 'index']);
 Route::group(['middleware' => ['jwt.verify']], function () {

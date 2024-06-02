@@ -128,31 +128,7 @@
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Description-->
-                                <!--begin::Block-->
-                                <div class="d-none d-flex align-items-center border-1 border-dashed card-rounded p-5 p-lg-10 mb-14">
-                                    <!--begin::Section-->
-                                    <div class="text-center flex-shrink-0 me-7 me-lg-13">
-                                        <!--begin::Avatar-->
-                                        <div class="symbol symbol-70px symbol-circle mb-2">
-                                            <img src="assets/media/avatars/300-2.jpg" class="" alt="" />
-                                        </div>
-                                        <!--end::Avatar-->
-                                        <!--begin::Info-->
-                                        <div class="mb-0">
-                                            <a href="pages/user-profile/overview.html" class="text-gray-700 fw-bold text-hover-primary">Jane Johnson</a>
-                                            <span class="text-gray-500 fs-7 fw-semibold d-block mt-1">Co-founder</span>
-                                        </div>
-                                        <!--end::Info-->
-                                    </div>
-                                    <!--end::Section-->
-                                    <!--begin::Text-->
-                                    <div class="mb-0 fs-6">
-                                        <div class="text-muted fw-semibold lh-lg mb-2">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words per minute and your writing skills are sharp writing a blog post often takes more than a couple.</div>
-                                        <a href="pages/user-profile/overview.html" class="fw-semibold link-primary">Author’s Profile</a>
-                                    </div>
-                                    <!--end::Text-->
-                                </div>
-                                <!--end::Block-->
+                             
                                 <!--begin::Icons-->
                                 <div class="d-flex flex-center">
                                     <!--begin::Icon-->
