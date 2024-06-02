@@ -31,7 +31,7 @@
 <div class="loading-overlay" id="loadingOverlay">
     Duduk bersabar menunggu lama,
     <br>
-    Sistem loading, hati bertanya-tanya.
+    Sistem loading, hati pun bertanya.
     <br>
     Meski lambat, sabar tetap terjaga,
     <br>
