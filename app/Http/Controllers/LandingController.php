@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\CourseDetail;
 use App\Models\Cart;
+use App\Models\LogActivity;
 
 class LandingController extends Controller
 {
@@ -120,6 +122,13 @@ class LandingController extends Controller
                 ]
             ];
         }
+
+        LogActivity::create([
+            'user_id' => Auth::user()->id,
+            'activity' => 'Open '.$course->title,
+        ]);
+
+      
 
       
         $coursedetails = CourseDetail::where('id_course', $course->id)

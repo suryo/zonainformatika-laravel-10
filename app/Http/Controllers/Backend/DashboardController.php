@@ -11,7 +11,7 @@ use App\Models\CourseCategory;
 use App\Models\CourseRoadmap;
 use App\Models\CourseTechnology;
 use App\Models\Order;
-
+use App\Models\LogActivity;
 
 class DashboardController extends Controller
 {
@@ -33,7 +33,7 @@ class DashboardController extends Controller
             $userCount = User::count();
 
             $OrderCount = Order::count();
-    
+            $logActivities = LogActivity::latest()->get();
     
 
             // Jika peran adalah 'user', arahkan ke halaman login
@@ -49,7 +49,7 @@ class DashboardController extends Controller
             }
 
             // Jika peran adalah 'super admin', 'admin', atau 'tutor', tampilkan halaman dashboard
-            return view('backend.dashboard.superadmin',compact('userCount','coursesCount', 'courseCategoriesCount', 'courseRoadmapsCount', 'courseTechnologiesCount', 'OrderCount'));
+            return view('backend.dashboard.superadmin',compact('userCount','coursesCount', 'courseCategoriesCount', 'courseRoadmapsCount', 'courseTechnologiesCount', 'OrderCount', 'logActivities'));
         }
 
         // Jika pengguna belum login, arahkan ke halaman login

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Role; // Import model Role
+use App\Models\Role;
+use App\Models\LogActivity; // Import model Role
 
 use Illuminate\Support\Facades\Password;
 
@@ -55,6 +56,10 @@ public function register(Request $request)
 
         // Authentikasi pengguna
         if (Auth::attempt($credentials)) {
+            LogActivity::create([
+                'user_id' => Auth::user()->id,
+                'activity' => 'Logged in',
+            ]);
             // Jika berhasil, redirect ke halaman yang diinginkan
             return redirect()->route('landing');
         } else {
@@ -64,6 +69,10 @@ public function register(Request $request)
 
     public function logout()
     {
+        LogActivity::create([
+            'user_id' => Auth::user()->id,
+            'activity' => 'Logged out',
+        ]);
         Auth::logout();
         // Redirect ke halaman login atau halaman lainnya
         return redirect()->route('login');

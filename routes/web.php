@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ArticleCategoryController;
 use App\Http\Controllers\Backend\ArticleController;
 use App\Http\Controllers\Backend\ProjectController;
+use App\Http\Controllers\LogActivityController;
 
 
 /*
@@ -118,5 +119,6 @@ Route::resource('orders', OrderController::class);
 Route::resource('dashboard/articlecategory', ArticleCategoryController::class);
 Route::resource('dashboard/article', ArticleController::class);
 Route::resource('dashboard/project', ProjectController::class);
+Route::get('/log-activity', [LogActivityController::class, 'index'])->name('log-activity.index');
 
 Route::get('/landing', [LandingController::class, 'landing'])->name('newlanding');
