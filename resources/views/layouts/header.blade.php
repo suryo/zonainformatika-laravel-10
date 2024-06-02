@@ -61,7 +61,20 @@
                                             <span class="menu-arrow d-lg-none"></span>
                                         </span></a>
                                         </div>
+
+                                       
                                     @endif
+
+                                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+                                        <a href="{{ url('messages') }}" class="btn btn-link" style="color: white";><span class="menu-link py-3">
+                                        <span class="menu-title">Messages &nbsp;
+                                            <span class="badge rounded-pill bg-danger">
+                                                NEW 
+                                              </span>
+                                        </span>
+                                        <span class="menu-arrow d-lg-none"></span>
+                                    </span></a>
+                                    </div>
                                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
