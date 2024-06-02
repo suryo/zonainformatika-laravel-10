@@ -103,6 +103,11 @@ class LandingController extends Controller
     
             $availability_on_cart = count($cart);
             $availability = count($subscribe);
+
+            LogActivity::create([
+                'user_id' => Auth::user()->id,
+                'activity' => 'Open '.$course->title,
+            ]);
     
         }
 
@@ -123,10 +128,7 @@ class LandingController extends Controller
             ];
         }
 
-        LogActivity::create([
-            'user_id' => Auth::user()->id,
-            'activity' => 'Open '.$course->title,
-        ]);
+       
 
       
 
