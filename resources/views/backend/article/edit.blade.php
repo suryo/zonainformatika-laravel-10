@@ -1,6 +1,8 @@
 @extends('layouts.frontend-metronic-template')
 
 @section('content')
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
     <h1>Edit Article</h1>
     <form action="{{ route('article.update', $article->id) }}" method="POST">
@@ -15,8 +17,9 @@
             <textarea class="form-control" id="short_desc" name="short_desc">{{ $article->short_desc }}</textarea>
         </div>
         <div class="mb-3">
-            <label for="text" class="form-label">Text</label>
-            <textarea class="form-control" id="text" name="text" required>{{ $article->text }}</textarea>
+           
+            <div id="quill-editor" class="mb-3" style="height: 400px;"></div>
+            <textarea rows="3" class="mb-3 d-none" name="text" id="quill-editor-area">{{ $article->text }}</textarea>
         </div>
         <div class="mb-3">
             <label for="author" class="form-label">Author</label>
@@ -43,4 +46,51 @@
         <button type="submit" class="btn btn-primary">Update Article</button>
     </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            ['blockquote', 'code-block'],
+            ['link', 'image', 'video', 'formula'],
+            [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+            [{ 'direction': 'rtl' }],                         // text direction
+            [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+            [{ 'font': [] }],
+            [{ 'align': [] }],
+            ['clean']                                         // remove formatting button
+        ];
+
+        const options = {
+            debug: 'info',
+            modules: {
+                toolbar: toolbarOptions,
+            },
+            placeholder: 'Compose an epic...',
+            theme: 'snow'
+        };
+
+        var editor = new Quill('#quill-editor', options);
+
+        var quillEditor = document.getElementById('quill-editor-area');
+
+        // Inisialisasi editor dengan konten dari textarea
+        if (quillEditor.value) {
+            editor.setContents(JSON.parse(quillEditor.value));
+        }
+
+        editor.on('text-change', function() {
+            quillEditor.value = JSON.stringify(editor.getContents());
+        });
+
+        quillEditor.addEventListener('input', function() {
+            editor.setContents(JSON.parse(quillEditor.value));
+        });
+    });
+</script>
 @endsection
