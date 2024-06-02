@@ -35,7 +35,7 @@
     <br>
     Meski lambat, sabar tetap terjaga,
     <br>
-    Hasil yang ditunggu pasti tiba &nbsp; &nbsp;
+    Hasil yang ditunggu pasti tiba &nbsp; &nbsp; &nbsp;
     <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
     </div>
