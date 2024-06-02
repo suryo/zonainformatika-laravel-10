@@ -13,9 +13,9 @@
             <!--end::Aside mobile toggle-->
             <!--begin::Logo-->
             <a href="/">
-                <img alt="Logo" src="{{ url('/') }}/assets/image/logo/logo-square.png" class="d-none d-lg-inline h-30px theme-light-show" />
-                <img alt="Logo" src="{{ url('/') }}/assets/image/logo/logo-square.png" class="d-none d-lg-inline h-30px theme-dark-show" />
-                <img alt="Logo" src="{{ url('/') }}/assets/image/logo/logo-square.png" class="d-lg-none h-25px" />
+                <img alt="Logo" src="{{ url('/') }}/assets/image/logo/logo-square-pink.png" class="d-none d-lg-inline h-30px theme-light-show" />
+                <img alt="Logo" src="{{ url('/') }}/assets/image/logo/logo-square-white.png" class="d-none d-lg-inline h-30px theme-dark-show" />
+                <img alt="Logo" src="{{ url('/') }}/assets/image/logo/logo-square-white.png" class="d-lg-none h-25px" />
             </a>
             <!--end::Logo-->
         </div>
