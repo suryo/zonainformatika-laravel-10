@@ -17,7 +17,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 89, 255, 0.8);
+        background: rgba(58, 60, 63, 0.8);
         z-index: 9999;
         display: flex;
         align-items: center;
@@ -29,11 +29,13 @@
     }
 </style>
 <div class="loading-overlay" id="loadingOverlay">
-    your pc is running properly
+    Duduk bersabar menunggu lama,
     <br>
-    still Loading...
+    Sistem loading, hati bertanya-tanya.
     <br>
-    Please Wait &nbsp; &nbsp;
+    Meski lambat, sabar tetap terjaga,
+    <br>
+    Hasil yang ditunggu pasti tiba &nbsp; &nbsp;
     <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
     </div>
