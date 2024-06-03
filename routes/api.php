@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\CourseRoadmapController;
 use App\Http\Controllers\Api\CourseTechnologyController;
 
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\TestCrudController;
 
 use App\Http\Controllers\Api\MessageController;
 
@@ -41,6 +42,13 @@ Route::post('projects', [ProjectController::class, 'store']);
 Route::get('projects/{id}', [ProjectController::class, 'show']);
 Route::put('projects/{id}', [ProjectController::class, 'update']);
 Route::delete('projects/{id}', [ProjectController::class, 'destroy']);
+
+Route::get('testcrud', [TestCrudController::class, 'index']);
+Route::post('testcrud', [TestCrudController::class, 'store']);
+Route::get('testcrud/{id}', [TestCrudController::class, 'show']);
+Route::put('testcrud/{id}', [TestCrudController::class, 'update']);
+Route::delete('testcrud/{id}', [TestCrudController::class, 'destroy']);
+
 
 
 Route::apiResource('messages', MessageController::class);
