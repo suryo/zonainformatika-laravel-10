@@ -77,7 +77,6 @@ class TestCrudController extends Controller
             'author' => 'required|string|max:191',
             'price' => 'nullable|integer',
             'file_content' => 'nullable|file|mimes:pdf,doc,docx,zip|max:2048',
-            'slug' => 'required|string|max:191|unique:contents,slug,' . $testcrud->id,
             'status' => 'nullable|string|max:191',
         ]);
 
