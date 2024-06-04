@@ -72,32 +72,32 @@ class TestCrudController extends Controller
             return response()->json(['message' => 'Content not found'], 404);
         }
 
-        $validator = Validator::make($request->all(), [
-            'content' => 'required|string|max:191',
-            'author' => 'required|string|max:191',
-            'price' => 'nullable|integer',
-            'file_content' => 'nullable|file|mimes:pdf,doc,docx,zip|max:2048',
-            'status' => 'nullable|string|max:191',
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'content' => 'required|string|max:191',
+        //     'author' => 'required|string|max:191',
+        //     'price' => 'nullable|integer',
+        //     'file_content' => 'nullable|file|mimes:pdf,doc,docx,zip|max:2048',
+        //     'status' => 'nullable|string|max:191',
+        // ]);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json($validator->errors(), 422);
+        // }
 
-        if ($request->hasFile('file_content')) {
-            $fileName = time().'.'.$request->file_project->extension();
-            $request->file_project->move(public_path('assets/file_uploads'), $fileName);
-        } else {
-            $fileName = $testcrud->file_content;
-        }
+        // if ($request->hasFile('file_content')) {
+        //     $fileName = time().'.'.$request->file_project->extension();
+        //     $request->file_project->move(public_path('assets/file_uploads'), $fileName);
+        // } else {
+        //     $fileName = $testcrud->file_content;
+        // }
 
         $testcrud->update([
             'content' => $request->content,
             'author' => $request->author,
-            'price' => $request->price,
-            'file_content' => $fileName,
-            'slug' => $request->slug,
-            'status' => $request->status,
+            // 'price' => $request->price,
+            // 'file_content' => $fileName,
+            // 'slug' => $request->slug,
+            // 'status' => $request->status,
         ]);
 
         return response()->json($testcrud, 200);
