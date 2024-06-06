@@ -10,70 +10,60 @@ use App\Models\OrderDetail;
 use App\Models\CourseDetail;
 use App\Models\Cart;
 use App\Models\LogActivity;
+use Illuminate\Support\Facades\Cache;
+
 
 class LandingController extends Controller
 {
     public function index(Request $request)
     {
         $categories = $request->input('categories');
-
         $technologies = $request->input('technologies');
-
-
-        // Ambil data kursus berdasarkan kategori jika ada
-        if ($categories) {
-            $courses = Course::where('deleted', 'false')
-            ->where('status','=','active')
-            ->where('category_id', $categories)
-            ->get();
-        } else {
-            $courses = Course::where('deleted', 'false')
-            ->where('status','=','active')->get();
-        }
-      
-        if ($technologies) {
-            $courses = Course::where('deleted', 'false')
-            ->where('status','=','active')
-            ->where('technology_id', $technologies)
-            ->get();
-        } else {
-            $courses = Course::where('deleted', 'false')
-            ->where('status','=','active')->get();
-        }
-
-      
+    
+        // Membuat cache key berdasarkan kategori dan teknologi
+        $cacheKey = 'courses_' . ($categories ?: 'all') . '_' . ($technologies ?: 'all');
+        // Tentukan durasi cache dalam menit (misalnya 60 menit)
+        $cacheDuration = 60;
+    
+        // Menggunakan cache untuk menyimpan hasil query
+        $courses = Cache::remember($cacheKey, $cacheDuration, function () use ($categories, $technologies) {
+            $query = Course::where('deleted', 'false')
+                ->where('status', 'active');
+    
+            if ($categories) {
+                $query->where('category_id', $categories);
+            }
+    
+            if ($technologies) {
+                $query->where('technology_id', $technologies);
+            }
+    
+            return $query->get();
+        });
+    
         return view('landing', compact('courses'));
     }
 
     public function landing()
     {
-        $courses = Course::where('course.deleted', 'false')
-        ->where('course.status','=','active')
-        ->join('course_category', 'course_category.id', '=', 'course.category_id')
-        ->leftjoin('course_technology', 'course_technology.id', '=', 'course.technology_id')
-        ->select('course.*', 'course_category.name as category', 'course_technology.name as technology')
-        ->with('courseDetails')
-        ->get();
-        
-        // foreach ($courses as $course) {
-        //     dump("Course Title: " . $course->title . "\n");
-        //     dump(count($course->courseDetails));
-        //     // Akses detail course
-        //     foreach ($course->courseDetails as $detail) {
-        //         dump("Detail Title: " . $detail->title . "\n");
-        //         Tambahkan output detail course lainnya sesuai kebutuhan
-        //     }
-        //     dump("\n");
-        // }
-       
-        
-        
-        // dd("test");
-        
-        
-        
-         //dd($courses);
-        return view('newlanding', compact('courses'));
+        // Tentukan durasi cache dalam menit (misalnya 60 menit)
+    $cacheDuration = 60;
+
+    // Cache key untuk mengidentifikasi cache
+    $cacheKey = 'courses_landing_page';
+
+    // Menggunakan cache untuk menyimpan hasil query
+    $courses = Cache::remember($cacheKey, $cacheDuration, function () {
+        return Course::where('course.deleted', 'false')
+            ->where('course.status', '=', 'active')
+            ->join('course_category', 'course_category.id', '=', 'course.category_id')
+            ->leftjoin('course_technology', 'course_technology.id', '=', 'course.technology_id')
+            ->select('course.*', 'course_category.name as category', 'course_technology.name as technology')
+            ->with('courseDetails')
+            ->get();
+    });
+
+    return view('newlanding', compact('courses'));
     }
     public function showCourse($id)
     {
