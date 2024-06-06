@@ -98,7 +98,7 @@
                 <a href="/" class="menu-link">
                     @php
                         use App\Models\Course;
-                        use Illuminate\Support\Facades\Cache;
+                      
             
                         // Menentukan cache key dan durasi cache
                         $cacheKey = 'all_courses_count';
@@ -145,7 +145,7 @@
             
             @php
                 use App\Models\CourseTechnology;
-                use Illuminate\Support\Facades\Cache;
+              
             
                 // Menentukan cache key dan durasi cache
                 $cacheKey = 'course_technologies';
