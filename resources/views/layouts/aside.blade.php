@@ -172,22 +172,28 @@
                     <span class="menu-section text-muted text-uppercase fs-7 fw-bold">Course Categories</span>
                 </div>
             </div>
-            <!--end::Heading-->
+            
             @php
-            use App\Models\CourseCategory;
-            $categories = CourseCategory::all();
+                use App\Models\CourseCategory;
+            
+                // Menentukan cache key dan durasi cache
+                $cacheKey = 'course_categories';
+                $cacheDuration = 60; // Durasi cache dalam menit
+            
+                // Menggunakan cache untuk menyimpan daftar kategori
+                $categories = Cache::remember($cacheKey, $cacheDuration, function () {
+                    return CourseCategory::all();
+                });
             @endphp
-
+            
             @foreach($categories as $category)
-             <!--begin::Menu item-->
-             <div class="menu-item">
-                <a href="/?categories={{ $category->id }}" class="menu-link">
-                    <span class="menu-title">{{ $category->name }}</span>
-                    
-                </a>
-            </div>
-            <!--end::Menu item-->
-           
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a href="/?categories={{ $category->id }}" class="menu-link">
+                        <span class="menu-title">{{ $category->name }}</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
             @endforeach
 
           
