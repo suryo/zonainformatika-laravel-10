@@ -97,11 +97,20 @@
             <div class="menu-item">
                 <a href="/" class="menu-link">
                     @php
-                    use App\Models\Course;
-                    $courses = Course::all();
+                        use App\Models\Course;
+                        use Illuminate\Support\Facades\Cache;
+            
+                        // Menentukan cache key dan durasi cache
+                        $cacheKey = 'all_courses_count';
+                        $cacheDuration = 60; // Durasi cache dalam menit
+            
+                        // Menggunakan cache untuk menyimpan jumlah kursus
+                        $coursesCount = Cache::remember($cacheKey, $cacheDuration, function () {
+                            return Course::count();
+                        });
                     @endphp
                     <span class="menu-title">All Course</span>
-                    <span class="menu-badge">{{ count($courses) }}</span>
+                    <span class="menu-badge">{{ $coursesCount }}</span>
                 </a>
             </div>
             <!--end::Menu item-->
