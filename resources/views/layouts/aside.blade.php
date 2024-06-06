@@ -142,22 +142,29 @@
                     <span class="menu-section text-muted text-uppercase fs-7 fw-bold">Course Technology</span>
                 </div>
             </div>
-            <!--end::Heading-->
+            
             @php
-            use App\Models\CourseTechnology;
-            $technologys = CourseTechnology::all();
+                use App\Models\CourseTechnology;
+                use Illuminate\Support\Facades\Cache;
+            
+                // Menentukan cache key dan durasi cache
+                $cacheKey = 'course_technologies';
+                $cacheDuration = 60; // Durasi cache dalam menit
+            
+                // Menggunakan cache untuk menyimpan daftar teknologi
+                $technologies = Cache::remember($cacheKey, $cacheDuration, function () {
+                    return CourseTechnology::all();
+                });
             @endphp
-
-            @foreach($technologys as $technology)
-             <!--begin::Menu item-->
-             <div class="menu-item">
-                <a href="/?technologies={{ $technology->id }}" class="menu-link">
-                    <span class="menu-title">{{ $technology->name }}</span>
-                    
-                </a>
-            </div>
-            <!--end::Menu item-->
-           
+            
+            @foreach($technologies as $technology)
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a href="/?technologies={{ $technology->id }}" class="menu-link">
+                        <span class="menu-title">{{ $technology->name }}</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
             @endforeach
             <!--begin::Heading-->
             <div class="menu-item pt-5">
