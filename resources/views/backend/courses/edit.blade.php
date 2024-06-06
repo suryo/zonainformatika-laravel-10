@@ -2,6 +2,7 @@
 @extends('layouts.frontend-metronic-template')
 
 @section('content')
+<div class="wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10" id="kt_wrapper">
     <h1>Edit Course</h1>
     <form action="{{ route('courses.update', $course->id) }}" method="POST">
         @csrf
@@ -52,4 +53,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+</div>
 @endsection
