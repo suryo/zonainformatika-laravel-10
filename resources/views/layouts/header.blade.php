@@ -101,13 +101,18 @@
                                     </div>  
                                 @endauth
                                 <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-                                        
-                                <a href="/carts" class="btn btn-link" style="color: white;"><span class="menu-link py-3">
-                                    <span class="menu-title">Cart</span>
-                                    <span class="menu-arrow d-lg-none"></span>
-                                </span>
+                                    <a href="/carts" class="btn btn-link" style="color: white;">
+                                        <span class="menu-link py-3">
+                                            <span class="menu-title">Cart</span>
+                                            <span class="menu-arrow d-lg-none"></span>
+                                        </span>
                                         @php
-                                            $cartItemCount = \App\Models\Cart::where('deleted', 'false')->count();
+                                            $cacheKey = 'cart_item_count';
+                                            $cacheDuration = 60; // Durasi cache dalam menit
+                                
+                                            $cartItemCount = Cache::remember($cacheKey, $cacheDuration, function () {
+                                                return \App\Models\Cart::where('deleted', 'false')->count();
+                                            });
                                         @endphp
                                         @if ($cartItemCount > 0)
                                             <span class="badge badge-pill badge-danger">{{ $cartItemCount }}</span>
