@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\CourseTechnologyController;
 
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TestCrudController;
+use App\Http\Controllers\Api\Test\TestProductController;
 
 use App\Http\Controllers\Api\MessageController;
 
@@ -48,6 +49,13 @@ Route::post('testcrud', [TestCrudController::class, 'store']);
 Route::get('testcrud/{id}', [TestCrudController::class, 'show']);
 Route::put('testcrud/{id}', [TestCrudController::class, 'update']);
 Route::delete('testcrud/{id}', [TestCrudController::class, 'destroy']);
+
+
+Route::get('testproduct', [TestProductController::class, 'index']);
+Route::post('testproduct', [TestProductController::class, 'store']);
+Route::get('testproduct/{id}', [TestProductController::class, 'show']);
+Route::put('testproduct/{id}', [TestProductController::class, 'update']);
+Route::delete('testproduct/{id}', [TestProductController::class, 'destroy']);
 
 
 
