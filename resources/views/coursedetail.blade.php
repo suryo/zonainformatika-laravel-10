@@ -29,13 +29,13 @@
     }
 </style>
 <div class="loading-overlay" id="loadingOverlay">
-    Duduk bersabar menunggu lama,
+    {{-- Duduk bersabar menunggu lama,
     <br>
     Sistem loading, hati pun bertanya.
     <br>
     Meski lambat, sabar tetap terjaga,
     <br>
-    Hasil yang ditunggu pasti tiba &nbsp; &nbsp; &nbsp;
+    Hasil yang ditunggu pasti tiba &nbsp; &nbsp; &nbsp; --}}
     <div class="spinner-border text-danger" role="status">
         <span class="sr-only">Loading...</span>
     </div>
@@ -96,9 +96,18 @@
         </div>
     </div>
     <!-- Akhir bagian atas halaman -->
-
     @auth
-        @if ($availability == 0)
+        @if ($availability_on_register == 0)
+            <form action="{{ route('landing_register_course_user.store', $course->id) }}" method="POST">
+                @csrf
+                <input type="hidden" name="register_number" value="{{ $course->id }}-{{ auth()->user()->id }}">
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="note" value="-">
+                <input type="hidden" name="status" value="active">
+                <input type="hidden" name="deleted" value="false">
+                <input type="hidden" name="course_id" value="{{ $course->id }}">
+                <button class="btn btn-primary">Register for Course</button>
+            </form>
         @else
             @if ($subscribe[0]->orders_payment_status == 'paid' && $subscribe[0]->status == 'active')
                 <!-- Bagian bawah halaman (detail course) -->

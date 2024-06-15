@@ -30,6 +30,8 @@ use App\Http\Controllers\Backend\ArticleController;
 use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\LogActivityController;
 
+use App\Http\Controllers\Backend\RegisterCourseUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +108,9 @@ Route::get('/coursesearch', [LandingController::class, 'search'])->name('course.
 
 Route::put('/course/{id}/updateStatus', [CourseController::class, 'updateStatus'])->name('courses.updateStatus');
 
+Route::post('/register_course_user/{id}', [LandingController::class, 'registerCourse'])->name('landing_register_course_user.store');
+
+
 Route::put('/orders/{id}/updatePaymentStatus', [OrderController::class, 'updatePaymentStatus'])->name('orders.updatePaymentStatus');
 Route::put('/orderdetails/{id}', [OrderDetailController::class, 'updateStatus'])->name('orderdetails.update');
 
@@ -115,6 +120,8 @@ Route::resource('course_roadmaps', CourseRoadmapController::class);
 Route::resource('course_technologies', CourseTechnologyController::class);
 Route::resource('roadmaps', CourseRoadmapController::class);
 Route::resource('orders', OrderController::class);
+
+Route::resource('register_course_user', RegisterCourseUserController::class);
 
 Route::resource('dashboard/articlecategory', ArticleCategoryController::class);
 Route::resource('dashboard/article', ArticleController::class);

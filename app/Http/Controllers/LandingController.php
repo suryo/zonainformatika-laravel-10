@@ -10,6 +10,7 @@ use App\Models\OrderDetail;
 use App\Models\CourseDetail;
 use App\Models\Cart;
 use App\Models\LogActivity;
+use App\Models\RegisterCourseUser;
 use Illuminate\Support\Facades\Cache;
 
 
@@ -67,65 +68,85 @@ class LandingController extends Controller
     }
     public function showCourse($id)
     {
-
         $user = auth()->user();
         $availability_on_cart = 0;
+        $availability_on_register = 0;
         $availability = 0;
-        if(!isset($user)){
+    
+        if (!isset($user)) {
             $subscribe = OrderDetail::where('order_details.deleted', 'false')
-            ->join('orders', 'orders.nomerorder', '=', 'order_details.nomerorder')
-            ->select('order_details.*', 'orders.status as orders_status', 'orders.payment_status as orders_payment_status')
-            ->get();
-        }
-        else
-        {
+                ->join('orders', 'orders.nomerorder', '=', 'order_details.nomerorder')
+                ->select('order_details.*', 'orders.status as orders_status', 'orders.payment_status as orders_payment_status')
+                ->get();
+        } else {
             $subscribe = OrderDetail::where('order_details.deleted', 'false')
-            ->join('orders', 'orders.nomerorder', '=', 'order_details.nomerorder')
-            ->where('user_id','=',$user->id)
-            ->where('order_details.course_id','=', $id)
-            ->select('order_details.*', 'orders.status as orders_status', 'orders.payment_status as orders_payment_status')
-            ->get();
-
+                ->join('orders', 'orders.nomerorder', '=', 'order_details.nomerorder')
+                ->where('user_id', '=', $user->id)
+                ->where('order_details.course_id', '=', $id)
+                ->select('order_details.*', 'orders.status as orders_status', 'orders.payment_status as orders_payment_status')
+                ->get();
+    
             $cart = Cart::where('course_id', $id)
-            ->where('user_id',$user->id)
-            ->where('deleted','false')
-            ->get();
+                ->where('user_id', $user->id)
+                ->where('deleted', 'false')
+                ->get();
+
+            $register = RegisterCourseUser::where('course_id', $id)
+            ->where('user_id', $user->id)
+            ->where('deleted', 'false')
+                ->get();
     
             $availability_on_cart = count($cart);
-            $availability = count($subscribe);
-    
+            $availability_on_register = count($register);
+            //$availability = count($subscribe);
         }
-
-
     
         $course = Course::find($id);
         if ($course->price == 0) {
             $availability_on_cart = 1;
             $availability = 1;
             $subscribe = [
-                (object) [
+                (object)[
                     "orders_payment_status" => "paid",
                     "status" => "active"
                 ]
             ];
         }
-
-       
-        if(isset($user)){
+    
+        if (isset($user)) {
             LogActivity::create([
                 'user_id' => Auth::user()->id,
-                'activity' => 'Open '.$course->title,
+                'activity' => 'Open ' . $course->title,
             ]);
         }
-      
-
-      
+    
         $coursedetails = CourseDetail::where('id_course', $course->id)
-        ->where('status','active')
-        ->get();
-        return view('coursedetail', compact('course','coursedetails','subscribe', 'availability', 'availability_on_cart'));
+            ->where('status', 'active')
+            ->get();
+    
+        return view('coursedetail', compact('course', 'coursedetails', 'subscribe', 'availability', 'availability_on_cart','availability_on_register'));
     }
-
+    
+    public function registerCourse(Request $request, $id)
+    {
+        $user = auth()->user();
+    
+        if (!$user) {
+            return redirect()->route('login');
+        }
+    
+        RegisterCourseUser::create([
+            'register_number' => uniqid(),
+            'course_id' => $id,
+            'user_id' => $user->id,
+            'note' => '',
+            'status' => 'registered',
+            'deleted' => 'false',
+        ]);
+    
+        return redirect()->route('course.detail', ['id' => $id])->with('success', 'You have successfully registered for the course.');
+    }
+    
     public function search(Request $request)
     {
       

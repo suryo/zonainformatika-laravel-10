@@ -76,6 +76,13 @@
             </div>
 
             <div class="menu-item">
+                <a href="{{ url('register_course_user') }}" class="menu-link">
+                    <span class="menu-title">Register Courses</span>
+                    {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
+                </a>
+            </div>
+
+            <div class="menu-item">
                 <a href="{{ route('orders.index') }}" class="menu-link">
                     <span class="menu-title">Orders</span>
                     {{-- <span class="menu-badge">{{ count($courses) }}</span> --}}
